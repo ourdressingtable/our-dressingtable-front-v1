@@ -1,9 +1,9 @@
 <template>
-  <RouterView />
+  <div>RegisterPage</div>
 </template>
 
 <script setup lang="ts">
 defineOptions({
-  name: 'AppRoot',
+  name: 'RegisterPage',
 })
 </script>
