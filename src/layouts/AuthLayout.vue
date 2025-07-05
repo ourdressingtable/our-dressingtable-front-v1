@@ -1,10 +1,11 @@
 <template>
   <div class="auth-layout">
     <header class="auth-header">
-      <button class="back-button" @click="goBack">뒤로가기</button>
-      <div class="logo">
+      <RouterLink to="/">
+        <div class="logo">
         <img src="@/assets/odt_logo.svg" alt="logo" />
-      </div>
+        </div>
+      </RouterLink>   
     </header>
 
     <main>

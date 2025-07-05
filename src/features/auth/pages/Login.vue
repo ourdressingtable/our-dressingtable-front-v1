@@ -12,9 +12,8 @@
               id="email"
               type="email"
               name="email"
-              placeholder="sample@email.com"
+              placeholder="example@email.com"
             />
-            <span class="icon success">✔️</span>
           </div>
         </div>
 
@@ -22,7 +21,9 @@
           <label for="비밀번호">비밀번호</label>
           <div class="input-wrapper">
             <input class="form-input" id="password" type="password" name="password" />
-            <span class="icon toggle">👁️</span>
+            <span class="icon toggle">
+              <img src="@/assets/icons/show.svg" alt="show" />
+            </span>
           </div>
           <div class="forgot-password">
             <a href="#">비밀번호 찾기</a>
@@ -54,7 +55,11 @@
       </div>
 
       <!-- 회원 가입 링크 -->
-      <div class="register-link">계정이 없다면? <a href="#">회원 가입</a></div>
+      <div class="register-link">계정이 없다면? 
+        <RouterLink to="/auth/register">
+          회원 가입
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>
