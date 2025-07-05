@@ -22,7 +22,7 @@
           <div class="input-wrapper">
             <input class="form-input" id="password" type="password" name="password" />
             <span class="icon toggle">
-              <img src="@/assets/icons/show.svg" alt="show" />
+              <font-awesome-icon :icon="['far', 'eye']" />
             </span>
           </div>
           <div class="forgot-password">
