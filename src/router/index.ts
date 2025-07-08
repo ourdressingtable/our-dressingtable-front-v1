@@ -5,6 +5,8 @@ import RegisterPage from '@/features/auth/pages/Register.vue'
 import NotFoundPage from '@/errors/NotFound.vue'
 import MainLayout from '@/layouts/MainLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
+import ChatLayout from '@/layouts/ChatLayout.vue'
+import ChatView from '@/features/chat/pages/ChatView.vue'
 
 const routes = [
   {
@@ -19,6 +21,13 @@ const routes = [
       { path: 'login', name: 'Login', component: LoginPage },
       { path: 'register', name: 'Register', component: RegisterPage },
     ],
+  },
+  {
+    path: '/chat',
+    component: ChatLayout,
+    children: [
+      { path: 'chatView', nmae: 'ChatView', component: ChatView}
+    ]
   },
   {
     path: '/:pathMatch(.*)*',
