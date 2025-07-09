@@ -7,9 +7,7 @@
     </header>
 
     <main>
-      <div class="chat-view">
-        <RouterView />
-      </div>
+      <RouterView />
     </main>
   </div>
 </template>
