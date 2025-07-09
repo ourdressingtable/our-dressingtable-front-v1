@@ -1,6 +1,6 @@
-@import './variables';
-@import './auth';
-@import './chat/_chat';
+@use './variables' as *;
+@use './auth' as auth;
+@use './chat/_chat';
 * {
   box-sizing: border-box;
 }
