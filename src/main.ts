@@ -12,10 +12,15 @@ import {
   faArrowLeft,
   faEllipsisVertical,
   faPaperPlane,
+  faHeart,
+  faComment,
+  faArrowRight,
 } from '@fortawesome/free-solid-svg-icons' // solid
 import {
   faEye as faEyeRegular,
   faCircleCheck as faCircleCheckRegular,
+  faHeart as faHeartRegular,
+  faComment as faCommentRegular,
 } from '@fortawesome/free-regular-svg-icons' // regular
 
 library.add(
@@ -28,6 +33,11 @@ library.add(
   faArrowLeft,
   faEllipsisVertical,
   faPaperPlane,
+  faHeart,
+  faHeartRegular,
+  faComment,
+  faCommentRegular,
+  faArrowRight,
 )
 
 import App from './App.vue'

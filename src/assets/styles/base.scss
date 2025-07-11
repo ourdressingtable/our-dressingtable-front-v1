@@ -1,6 +1,7 @@
 @use './variables' as *;
 @use './auth' as auth;
-@use './chat/_chat';
+@use './chat/_chat' as chat;
+@use './post/_post' as post;
 * {
   box-sizing: border-box;
 }
