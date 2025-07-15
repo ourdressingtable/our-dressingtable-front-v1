@@ -7,8 +7,10 @@ import MainLayout from '@/layouts/MainLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
 import ChatLayout from '@/layouts/ChatLayout.vue'
 import ChatView from '@/features/chat/pages/ChatView.vue'
-import PostLayout  from '@/layouts/PostLayout.vue'
+import PostLayout from '@/layouts/PostLayout.vue'
 import PostDetail from '@/features/post/pages/PostDetail.vue'
+import ChatListLayout from '@/layouts/ChatListLayout.vue'
+import ChatListView from '@/features/chat/pages/ChatListView.vue'
 
 const routes = [
   {
@@ -27,16 +29,17 @@ const routes = [
   {
     path: '/chat',
     component: ChatLayout,
-    children: [
-      { path: 'chatView', nmae: 'ChatView', component: ChatView}
-    ]
+    children: [{ path: 'chatView', nmae: 'ChatView', component: ChatView }],
   },
   {
-    path: '/post/',
+    path: '/chat',
+    component: ChatListLayout,
+    children: [{ path: 'chatListView', nmae: 'ChatListView', component: ChatListView }],
+  },
+  {
+    path: '/post',
     component: PostLayout,
-    children: [
-      { path: 'postDetail', nmae: 'PostDetail', component: PostDetail}
-    ]
+    children: [{ path: 'postDetail', nmae: 'PostDetail', component: PostDetail }],
   },
   {
     path: '/:pathMatch(.*)*',
