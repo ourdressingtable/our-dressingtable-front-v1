@@ -15,11 +15,7 @@
 
     <section class="comments">
       <p class="comment-count">댓글</p>
-      <CommentItem author="김댓글" content="좋은 정보에요!" date="2030.12.24">
-        <CommentItem author="김코멘트" content="좋은 정보에요!" date="2030.12.24">
-          <CommentItem author="김작성" content="감사합니다!" date="2030.12.24" />
-        </CommentItem>
-      </CommentItem>
+      <CommentItem v-for="(comment, i) in comments" :key="i" :comment="comment" />
     </section>
 
     <CommentInputBar />
@@ -29,4 +25,24 @@
 <script setup lang="ts">
 import CommentInputBar from '@/components/molecules/CommentInputBar.vue'
 import CommentItem from './CommentItem.vue'
+
+interface CommentItem {
+  author: string
+  date: string
+  content: string
+  replies?: CommentItem[]
+}
+
+const comments: CommentItem[] = [
+  {
+    author: '김댓글',
+    content: '좋은 정보에요!',
+    date: '2030.12.24',
+    replies: [
+      { author: '김코멘트', content: '좋은 정보에요!', date: '2030.12.24' },
+      { author: '김작성', content: '감사합니다!', date: '2030.12.24' },
+    ],
+  },
+  { author: '유댓글', content: '좋습니다!', date: '2030.12.25' },
+]
 </script>
