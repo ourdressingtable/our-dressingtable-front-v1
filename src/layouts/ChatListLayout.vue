@@ -11,10 +11,13 @@
     <main>
       <RouterView />
     </main>
+    <TheNavBar />
   </div>
 </template>
 
 <script setup lang="ts">
+import TheNavBar from '@/components/TheNavBar.vue'
+
 defineOptions({
   name: 'ChatListLayout',
 })
