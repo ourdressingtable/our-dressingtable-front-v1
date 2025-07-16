@@ -1,12 +1,24 @@
 <template>
-    <div class="comment">
+  <div class="comment">
     <div class="comment-header">
-        <span class="author"> STELLA </span>
-        <span class="date"> 2030.12.25 </span>
+      <span class="author"> {{ comment.author }}</span>
+      <span class="date"> {{ comment.date }} </span>
     </div>
-    <div class="comment-content">좋은 정보 감사합니다!</div>
-    <div class="reply" v-if="$slots.default">
-        <slot />
+    <div class="comment-content">{{ comment.content }}</div>
+    <div v-for="(reply, i) in comment.replies" :key="i" class="reply">
+      <CommentItem :comment="reply" />
     </div>
-</div>
+  </div>
 </template>
+
+<script setup lang="ts">
+interface Comment {
+  author: string
+  date: string
+  content: string
+  replies?: Comment[]
+}
+defineProps<{
+  comment: Comment
+}>()
+</script>

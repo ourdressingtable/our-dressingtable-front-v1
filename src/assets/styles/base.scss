@@ -1,7 +1,9 @@
 @use './variables' as *;
 @use './auth' as auth;
+@use './nav.scss' as nav;
 @use './chat/_chat' as chat;
 @use './post/_post' as post;
+@use './chat/chatList' as chatList;
 * {
   box-sizing: border-box;
 }

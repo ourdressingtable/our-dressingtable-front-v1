@@ -1,11 +1,13 @@
 <template>
   <div class="chat-item">
-    <div class="profile-icon"></div>
-    <div class="chat-content">
-      <p class="chat-name">{{ chat.name }}</p>
-      <p class="chat-name">{{ chat.message }}</p>
-      <p class="chat-time">{{ chat.time }}</p>
+    <div class="chat-left">
+      <div class="profile-icon">{{ chat.profile }}</div>
+      <div class="chat-content">
+        <div class="chat-name">{{ chat.name }}</div>
+        <div class="chat-message">{{ chat.message }}</div>
+      </div>
     </div>
+    <div class="chat-time">{{ chat.time }}</div>
   </div>
 </template>
 
@@ -15,6 +17,7 @@ defineProps<{
     name: string
     message: string
     time: string
+    profile: string
   }
 }>()
 </script>

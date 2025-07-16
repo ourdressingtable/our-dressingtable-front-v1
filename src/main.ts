@@ -15,18 +15,26 @@ import {
   faHeart,
   faComment,
   faArrowRight,
+  faHouse,
+  faMagnifyingGlass,
+  faMessage,
+  faBell,
 } from '@fortawesome/free-solid-svg-icons' // solid
 import {
   faEye as faEyeRegular,
   faCircleCheck as faCircleCheckRegular,
   faHeart as faHeartRegular,
   faComment as faCommentRegular,
+  faMessage as faMessageRegular,
+  faBell as faBellRegular,
+  faUser as faUserRegular,
 } from '@fortawesome/free-regular-svg-icons' // regular
 
 library.add(
   faEye,
   faEyeRegular,
   faUser,
+  faUserRegular,
   faLock,
   faCircleCheck,
   faCircleCheckRegular,
@@ -38,6 +46,12 @@ library.add(
   faComment,
   faCommentRegular,
   faArrowRight,
+  faHouse,
+  faMagnifyingGlass,
+  faMessage,
+  faMessageRegular,
+  faBell,
+  faBellRegular,
 )
 
 import App from './App.vue'
