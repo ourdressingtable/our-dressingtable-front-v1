@@ -37,28 +37,27 @@
         <div class="divider"><span>Login with</span></div>
         <div class="social-buttons">
           <button class="social google">
-            <img src="@/assets/icons/google.svg" alt="google" />
+            <img src="@/assets/icons/social/google.svg" alt="google" />
           </button>
           <button class="social google">
-            <img src="@/assets/icons/kakao.svg" alt="kakao" />
+            <img src="@/assets/icons/social/kakao.svg" alt="kakao" />
           </button>
           <button class="social google">
-            <img src="@/assets/icons/apple.svg" alt="apple" />
+            <img src="@/assets/icons/social/apple.svg" alt="apple" />
           </button>
           <button class="social google">
-            <img src="@/assets/icons/naver.svg" alt="naver" />
+            <img src="@/assets/icons/social/naver.svg" alt="naver" />
           </button>
           <button class="social google">
-            <img src="@/assets/icons/github.svg" alt="github" />
+            <img src="@/assets/icons/social/github.svg" alt="github" />
           </button>
         </div>
       </div>
 
       <!-- 회원 가입 링크 -->
-      <div class="register-link">계정이 없다면? 
-        <RouterLink to="/auth/register">
-          회원 가입
-        </RouterLink>
+      <div class="register-link">
+        계정이 없다면?
+        <RouterLink to="/auth/register"> 회원 가입 </RouterLink>
       </div>
     </div>
   </div>

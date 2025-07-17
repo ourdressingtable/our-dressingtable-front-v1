@@ -1,21 +1,25 @@
 <template>
   <nav class="bottom-navbar">
-    <RouterLink to="/" class="nav-item" active-class="active">
-      <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+    <RouterLink to="" class="nav-item" active-class="active">
+      <Icon name="search" style="color: red" />
     </RouterLink>
     <RouterLink to="/chat/chatListView" class="nav-item" active-class="active">
-      <font-awesome-icon :icon="['far', 'message']" />
+      <Icon name="message-square" />
     </RouterLink>
     <RouterLink to="/" class="nav-item" exact-active-class="active">
-      <font-awesome-icon :icon="['fas', 'house']" />
+      <Icon name="home" />
     </RouterLink>
 
-    <RouterLink to="/" class="nav-item" active-class="active">
-      <font-awesome-icon :icon="['far', 'user']" />
+    <RouterLink to="" class="nav-item" active-class="active">
+      <Icon name="user-round" />
     </RouterLink>
 
-    <RouterLink to="/" class="nav-item" active-class="active">
-      <font-awesome-icon :icon="['far', 'bell']" />
+    <RouterLink to="" class="nav-item" active-class="active">
+      <Icon name="bell" />
     </RouterLink>
   </nav>
 </template>
+
+<script setup lang="ts">
+import Icon from '@/components/Icon.vue'
+</script>
