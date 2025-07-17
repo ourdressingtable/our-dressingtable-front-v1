@@ -20,18 +20,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $button-color-primary;
 
-    img {
+    .icon path {
       width: 24px;
       height: 24px;
-      opacity: 0.5;
+      // opacity: 0.5;
       transition: opacity 0.2s ease;
+      stroke: $button-color-primary;
     }
 
-    &.active {
+    &.active .icon path {
       opacity: 1;
-      color: $point-color-primary;
+      stroke: $point-color-primary;
     }
   }
 }
