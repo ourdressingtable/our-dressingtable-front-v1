@@ -1,3 +1,4 @@
+@use './variables' as *;
 .bottom-navbar {
   position: fixed;
   bottom: 0;
@@ -19,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: $button-color-primary;
 
     img {
       width: 24px;
@@ -27,9 +29,9 @@
       transition: opacity 0.2s ease;
     }
 
-    &.active img {
+    &.active {
       opacity: 1;
-      filter: hue-rotate(270deg); // 보라색 계열
+      color: $point-color-primary;
     }
   }
 }

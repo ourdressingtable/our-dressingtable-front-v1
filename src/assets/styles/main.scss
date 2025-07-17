@@ -2,3 +2,13 @@
 @use 'base';
 @use 'auth';
 @use './post/post';
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: white;
+}
