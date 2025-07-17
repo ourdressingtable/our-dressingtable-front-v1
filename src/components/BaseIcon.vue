@@ -13,7 +13,7 @@ const iconComponent = computed(() => {
   try {
     return defineAsyncComponent(() => import(`@/assets/icons/${props.name}.svg`))
   } catch (e) {
-    console.warn(`Icon not found: ${props.name}`)
+    console.warn(`Icon not found: ${props.name}`, e)
     return null
   }
 })
