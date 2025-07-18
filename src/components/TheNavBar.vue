@@ -1,6 +1,6 @@
 <template>
   <nav class="bottom-navbar">
-    <RouterLink to="" class="nav-item" active-class="active">
+    <RouterLink to="/" class="nav-item" active-class="active">
       <Icon name="search" style="color: red" />
     </RouterLink>
     <RouterLink to="/chat/chatListView" class="nav-item" active-class="active">
@@ -10,11 +10,11 @@
       <Icon name="home" />
     </RouterLink>
 
-    <RouterLink to="" class="nav-item" active-class="active">
+    <RouterLink to="/" class="nav-item" active-class="active">
       <Icon name="user-round" />
     </RouterLink>
 
-    <RouterLink to="" class="nav-item" active-class="active">
+    <RouterLink to="/notification/notificationView" class="nav-item" active-class="active">
       <Icon name="bell" />
     </RouterLink>
   </nav>
