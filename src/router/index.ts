@@ -11,6 +11,8 @@ import PostLayout from '@/layouts/PostLayout.vue'
 import PostDetail from '@/features/post/pages/PostDetail.vue'
 import ChatListLayout from '@/layouts/ChatListLayout.vue'
 import ChatListView from '@/features/chat/pages/ChatListView.vue'
+import NotificationLayout from '@/layouts/NotificationLayout.vue'
+import NotificationView from '@/features/notification/pages/NotificationView.vue'
 
 const routes = [
   {
@@ -40,6 +42,11 @@ const routes = [
     path: '/post',
     component: PostLayout,
     children: [{ path: 'postDetail', nmae: 'PostDetail', component: PostDetail }],
+  },
+  {
+    path: '/notification',
+    component: NotificationLayout,
+    children: [{ path: 'notificationView', nmae: 'notificationView', component: NotificationView }],
   },
   {
     path: '/:pathMatch(.*)*',
