@@ -1,7 +1,7 @@
 <template>
   <nav class="bottom-navbar">
-    <RouterLink to="/" class="nav-item" active-class="active">
-      <Icon name="search" style="color: red" />
+    <RouterLink to="/post/postDetail" class="nav-item" active-class="active">
+      <Icon name="clipboard" />
     </RouterLink>
     <RouterLink to="/chat/chatListView" class="nav-item" active-class="active">
       <Icon name="message-square" />
