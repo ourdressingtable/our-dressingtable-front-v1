@@ -64,7 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import googleIcon from '@/assets/social/google.svg'
+import googleIcon from '@/assets/social/google.svg?url'
 import kakaoIcon from '@/assets/social/kakao.svg?url'
 import appleIcon from '@/assets/social/apple.svg?url'
 import naverIcon from '@/assets/social/naver.svg?url'
