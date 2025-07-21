@@ -37,19 +37,19 @@
         <div class="divider"><span>Login with</span></div>
         <div class="social-buttons">
           <button class="social google">
-            <img src="@/assets/icons/social/google.svg" alt="google" />
+            <img :src="googleIcon" alt="google" />
           </button>
-          <button class="social google">
-            <img src="@/assets/icons/social/kakao.svg" alt="kakao" />
+          <button class="social kakao">
+            <img :src="kakaoIcon" alt="kakao" />
           </button>
-          <button class="social google">
-            <img src="@/assets/icons/social/apple.svg" alt="apple" />
+          <button class="social apple">
+            <img :src="appleIcon" alt="apple" />
           </button>
-          <button class="social google">
-            <img src="@/assets/icons/social/naver.svg" alt="naver" />
+          <button class="social naver">
+            <img :src="naverIcon" alt="naver" />
           </button>
-          <button class="social google">
-            <img src="@/assets/icons/social/github.svg" alt="github" />
+          <button class="social github">
+            <img :src="githubIcon" alt="github" />
           </button>
         </div>
       </div>
@@ -64,6 +64,12 @@
 </template>
 
 <script setup lang="ts">
+import googleIcon from '@/assets/icons/social/google.svg?url'
+import kakaoIcon from '@/assets/icons/social/kakao.svg?url'
+import appleIcon from '@/assets/icons/social/apple.svg?url'
+import naverIcon from '@/assets/icons/social/naver.svg?url'
+import githubIcon from '@/assets/icons/social/github.svg?url'
+
 defineOptions({
   name: 'LoginPage',
 })

@@ -3,9 +3,9 @@
     <header class="auth-header">
       <RouterLink to="/">
         <div class="logo">
-        <img src="@/assets/odt_logo.svg" alt="logo" />
+          <img :src="odtLogo" alt="logo" />
         </div>
-      </RouterLink>   
+      </RouterLink>
     </header>
 
     <main>
@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+import odtLogo from '@/assets/odt_logo.svg?url'
 defineOptions({
   name: 'AuthLayout',
 })
