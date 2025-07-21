@@ -64,11 +64,11 @@
 </template>
 
 <script setup lang="ts">
-import googleIcon from '@/assets/icons/social/google.svg?url'
-import kakaoIcon from '@/assets/icons/social/kakao.svg?url'
-import appleIcon from '@/assets/icons/social/apple.svg?url'
-import naverIcon from '@/assets/icons/social/naver.svg?url'
-import githubIcon from '@/assets/icons/social/github.svg?url'
+import googleIcon from '@/assets/social/google.svg'
+import kakaoIcon from '@/assets/social/kakao.svg?url'
+import appleIcon from '@/assets/social/apple.svg?url'
+import naverIcon from '@/assets/social/naver.svg?url'
+import githubIcon from '@/assets/social/github.svg?url'
 
 defineOptions({
   name: 'LoginPage',
