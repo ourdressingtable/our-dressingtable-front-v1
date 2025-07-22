@@ -1,20 +1,39 @@
-<template>
-  <component :is="iconComponent" class="icon" :class="`icon--${name}`" />
-</template>
-
 <script setup lang="ts">
-import { computed, defineAsyncComponent } from 'vue'
+import { h, defineComponent } from 'vue'
+import * as icons from 'lucide-vue-next'
+import type { LucideIcon } from 'lucide-vue-next'
 
-const props = defineProps<{
-  name: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    name: keyof typeof icons
+    size?: number
+    color?: string
+    strokeWidth?: number
+  }>(),
+  {
+    size: 16,
+    color: 'currentColor',
+    strokeWidth: 1.5,
+  },
+)
 
-const iconComponent = computed(() => {
-  try {
-    return defineAsyncComponent(() => import(`@/assets/icons/${props.name}.svg`))
-  } catch (e) {
-    console.warn(`Icon not found: ${props.name}`, e)
-    return null
-  }
+// 아이콘 타입 보장
+const IconComponent = icons[props.name] as LucideIcon
+
+// 렌더용 컴포넌트 정의 (하위에서 렌더)
+const RenderIcon = defineComponent({
+  name: 'RenderIcon',
+  setup() {
+    return () =>
+      h(IconComponent, {
+        size: props.size,
+        color: props.color,
+        strokeWidth: props.strokeWidth,
+      })
+  },
 })
 </script>
+
+<template>
+  <RenderIcon />
+</template>

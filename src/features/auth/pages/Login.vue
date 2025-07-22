@@ -22,7 +22,7 @@
           <div class="input-wrapper">
             <input class="form-input" id="password" type="password" name="password" />
             <span class="icon toggle">
-              <font-awesome-icon :icon="['far', 'eye']" />
+              <Icon name="Eye" />
             </span>
           </div>
           <div class="forgot-password">
@@ -69,6 +69,7 @@ import kakaoIcon from '@/assets/social/kakao.svg?url'
 import appleIcon from '@/assets/social/apple.svg?url'
 import naverIcon from '@/assets/social/naver.svg?url'
 import githubIcon from '@/assets/social/github.svg?url'
+import Icon from '@/components/BaseIcon.vue'
 
 defineOptions({
   name: 'LoginPage',
