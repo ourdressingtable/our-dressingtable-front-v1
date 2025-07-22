@@ -1,7 +1,7 @@
 <template>
   <div class="chat-layout">
     <PageHeader>
-      <template #title><span>STELLA님과 채팅</span></template>
+      <template #title>STELLA님과 채팅</template>
 
       <template #menu>
         <div ref="dropdownRef" class="setting-wrapper">
