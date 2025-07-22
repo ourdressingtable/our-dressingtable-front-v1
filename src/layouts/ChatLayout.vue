@@ -1,7 +1,7 @@
 <template>
   <div class="chat-layout">
     <PageHeader>
-      <template #title><span>STELLA님과 채팅</span></template>
+      <template #title>STELLA님과 채팅</template>
 
       <template #menu>
         <div ref="dropdownRef" class="setting-wrapper">
@@ -25,7 +25,9 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { RouterView } from 'vue-router'
 import Icon from '@/components/BaseIcon.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import { useConfirm } from '@/composables/useConfirm'
 
+const confirm = useConfirm()
 const showDropdown = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
 const toggleDropdown = () => (showDropdown.value = !showDropdown.value)
@@ -45,12 +47,24 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleOutsideClick)
 })
 
-const handleLeave = () => {
-  alert('채팅방을 나가시겠습니까?')
+const handleLeave = async () => {
+  showDropdown.value = false
+  const confirmed = await confirm('채팅방을 나가시겠습니까?')
+  if (confirmed) {
+    console.log('채팅방 나가기')
+  } else {
+    console.log('채팅방 나가기 취소')
+  }
 }
 
-const handleReport = () => {
-  alert('신고 접수 하시겠습니까?')
+const handleReport = async () => {
+  showDropdown.value = false
+  const confirmed = await confirm('신고를 접수하시겠습니까?')
+  if (confirmed) {
+    console.log('신고 접수 완료')
+  } else {
+    console.log('신고 취소')
+  }
 }
 
 defineOptions({
