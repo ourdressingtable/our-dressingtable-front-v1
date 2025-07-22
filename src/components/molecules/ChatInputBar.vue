@@ -2,7 +2,7 @@
   <div class="chat-input">
     <input type="text" name="chat-content" placeholder="메시지를 입력해주세요" />
     <button class="send-button">
-      <Icon name="plane" />
+      <Icon name="Send" />
     </button>
   </div>
 </template>

@@ -5,15 +5,9 @@
     </button>
 
     <h1 class="page-title">
-      <slot name="title" />
+      <slot name="title"></slot>
     </h1>
-
-    <div class="setting-wrapper">
-      <slot name="menu">
-        <!-- 기본 메뉴 아이콘 -->
-        <Icon name="MoreVertical" :size="24" />
-      </slot>
-    </div>
+    <slot name="menu"></slot>
   </div>
 </template>
 
