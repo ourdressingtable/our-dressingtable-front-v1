@@ -1,24 +1,18 @@
 <template>
   <div class="chat-layout">
-    <header class="chat-header">
-      <button class="back-button" @click="router.back()">
-        <font-awesome-icon :icon="['fas', 'arrow-left']" />
-      </button>
+    <PageHeader>
+      <template #title><span>STELLA님과 채팅</span></template>
 
-      <h1 class="chat-title">STELLA님과 채팅</h1>
-
-      <div class="setting-wrapper" ref="dropdownRef">
-        <font-awesome-icon
-          :icon="['fas', 'ellipsis-vertical']"
-          class="setting-icon"
-          @click="toggleDropdown"
-        />
-        <div v-if="showDropdwon" class="dropdown-menu">
-          <button @click="handleLeave">나가기</button>
-          <button class="danger" @click="handleReport">신고하기</button>
+      <template #menu>
+        <div ref="dropdownRef" class="setting-wrapper">
+          <Icon name="MoreVertical" :size="24" @click="toggleDropdown" />
+          <div v-if="showDropdown" class="dropdown-menu">
+            <button @click="handleLeave">나가기</button>
+            <button class="danger" @click="handleReport">신고하기</button>
+          </div>
         </div>
-      </div>
-    </header>
+      </template>
+    </PageHeader>
 
     <main>
       <RouterView />
@@ -28,16 +22,18 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { RouterView, useRouter } from 'vue-router'
+import { RouterView } from 'vue-router'
+import Icon from '@/components/BaseIcon.vue'
+import PageHeader from '@/components/PageHeader.vue'
 
-const showDropdwon = ref(false)
+const showDropdown = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
-const toggleDropdown = () => (showDropdwon.value = !showDropdwon.value)
+const toggleDropdown = () => (showDropdown.value = !showDropdown.value)
 
 const handleOutsideClick = (e: MouseEvent) => {
   const dropdownEl = dropdownRef.value
   if (dropdownEl && !dropdownEl.contains(e.target as Node)) {
-    showDropdwon.value = false
+    showDropdown.value = false
   }
 }
 
@@ -48,8 +44,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleOutsideClick)
 })
-
-const router = useRouter()
 
 const handleLeave = () => {
   alert('채팅방을 나가시겠습니까?')

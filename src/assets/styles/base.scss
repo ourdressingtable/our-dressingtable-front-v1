@@ -4,6 +4,7 @@
 @use './chat/_chat' as chat;
 @use './post/_post' as post;
 @use './chat/chatList' as chatList;
+@use './pageHeader.scss' as pageHeader;
 * {
   box-sizing: border-box;
 }

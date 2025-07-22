@@ -7,9 +7,9 @@
       <p class="body-text">화장품 사용해봤는데, 너무 좋아요!!!!</p>
 
       <div class="icons">
-        <span> <font-awesome-icon :icon="['far', 'heart']" />10</span>
-        <span> <font-awesome-icon :icon="['far', 'comment']" />10</span>
-        <span> <font-awesome-icon :icon="['far', 'eye']" />10</span>
+        <span> <Icon name="Heart" />10</span>
+        <span> <Icon name="MessageCircle" />10</span>
+        <span> <Icon name="Eye" />10</span>
       </div>
     </section>
 
@@ -25,6 +25,7 @@
 <script setup lang="ts">
 import CommentInputBar from '@/components/molecules/CommentInputBar.vue'
 import CommentItem from './CommentItem.vue'
+import Icon from '@/components/BaseIcon.vue'
 
 interface CommentItem {
   author: string

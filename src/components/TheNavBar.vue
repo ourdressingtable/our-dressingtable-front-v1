@@ -1,21 +1,21 @@
 <template>
   <nav class="bottom-navbar">
     <RouterLink to="/post/postDetail" class="nav-item" active-class="active">
-      <Icon name="clipboard" />
+      <Icon name="Clipboard" :size="24" />
     </RouterLink>
     <RouterLink to="/chat/chatListView" class="nav-item" active-class="active">
-      <Icon name="message-square" />
+      <Icon name="MessageSquare" :size="24" />
     </RouterLink>
     <RouterLink to="/" class="nav-item" exact-active-class="active">
-      <Icon name="home" />
+      <Icon name="Home" :size="24" />
     </RouterLink>
 
     <RouterLink to="/" class="nav-item" active-class="active">
-      <Icon name="user-round" />
+      <Icon name="UserRound" :size="24" />
     </RouterLink>
 
     <RouterLink to="/notification/notificationView" class="nav-item" active-class="active">
-      <Icon name="bell" />
+      <Icon name="Bell" :size="24" />
     </RouterLink>
   </nav>
 </template>

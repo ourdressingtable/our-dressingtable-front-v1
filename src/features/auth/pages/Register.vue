@@ -15,7 +15,7 @@
               placeholder="example@email.com"
             />
             <span class="icon success">
-              <font-awesome-icon :icon="['far', 'circle-check']" />
+              <Icon name="CircleCheck" />
             </span>
           </div>
         </div>
@@ -31,7 +31,7 @@
               placeholder="비밀번호 입력"
             />
             <span class="icon toggle">
-              <font-awesome-icon icon="fa-regular fa-eye" />
+              <Icon name="Eye" />
             </span>
           </div>
         </div>
@@ -88,8 +88,8 @@
           </div>
         </div>
 
-         <!-- 피부타입 -->
-         <div class="form-group">
+        <!-- 피부타입 -->
+        <div class="form-group">
           <label for="skinType">피부타입</label>
           <div class="input-wrapper">
             <select class="form-input" id="skinType" name="skinType">
@@ -102,8 +102,8 @@
           </div>
         </div>
 
-       <!-- 퍼스널 컬러 -->
-       <div class="form-group">
+        <!-- 퍼스널 컬러 -->
+        <div class="form-group">
           <label for="colorType">퍼스널 컬러</label>
           <div class="input-wrapper">
             <select class="form-input" id="colorType" name="colorType">
@@ -122,22 +122,14 @@
             <input class="form-input" id="birthDate" type="date" name="birthDate" />
           </div>
         </div>
-        
-        
-       <!-- 이미지 업로드 -->
-      <div class="form-group">
-        <label for="image">프로필 이미지</label>
-        <div class="input-wrapper">
-          <input
-            class="form-input"
-            id="image"
-            type="file"
-            name="image"
-            accept="image/*"
-          />
-        </div>
-      </div>
 
+        <!-- 이미지 업로드 -->
+        <div class="form-group">
+          <label for="image">프로필 이미지</label>
+          <div class="input-wrapper">
+            <input class="form-input" id="image" type="file" name="image" accept="image/*" />
+          </div>
+        </div>
 
         <button type="submit" class="form-button login">회원가입</button>
       </form>
@@ -151,6 +143,7 @@
 </template>
 
 <script setup lang="ts">
+import Icon from '@/components/BaseIcon.vue'
 defineOptions({
   name: 'RegisterPage',
 })
