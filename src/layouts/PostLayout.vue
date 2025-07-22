@@ -24,7 +24,9 @@ import PageHeader from '@/components/PageHeader.vue'
 import Icon from '@/components/BaseIcon.vue'
 import { RouterView } from 'vue-router'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useConfirm } from '@/composables/useConfirm'
 
+const confirm = useConfirm()
 const showDropdown = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
 const toggleDropdown = () => (showDropdown.value = !showDropdown.value)
@@ -44,8 +46,14 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleOutsideClick)
 })
 
-const handleReport = () => {
-  alert('신고 접수 하시겠습니까?')
+const handleReport = async () => {
+  showDropdown.value = false
+  const confirmed = await confirm('신고를 접수하시겠습니까?')
+  if (confirmed) {
+    console.log('신고 접수 완료')
+  } else {
+    console.log('신고 취소')
+  }
 }
 
 defineOptions({
