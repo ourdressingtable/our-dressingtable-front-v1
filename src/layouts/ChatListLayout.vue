@@ -1,13 +1,16 @@
 <template>
   <div class="chat-list-layout">
-    <header class="chat-list-header">
-      <!-- <RouterLink to="/">
-        <div class="logo">
-          <img src="@/assets/odt_logo.svg" alt="logo" />
+    <BaseHeader>
+      <template #title>채팅</template>
+      <template #menu>
+        <div ref="dropdownRef" class="setting-wrapper">
+          <Icon name="MoreVertical" :size="24" @click="toggleDropdown" />
+          <div v-if="showDropdown" class="dropdown-menu">
+            <button @click="handleSelect">채팅 선택</button>
+          </div>
         </div>
-      </RouterLink> -->
-      <h1 class="chat-list-title">채팅</h1>
-    </header>
+      </template>
+    </BaseHeader>
     <main>
       <RouterView />
     </main>
@@ -16,7 +19,19 @@
 </template>
 
 <script setup lang="ts">
+import BaseHeader from '@/components/BaseHeader.vue'
 import TheNavBar from '@/components/TheNavBar.vue'
+import Icon from '@/components/BaseIcon.vue'
+import { ref } from 'vue'
+import { useDropdown } from '@/composables/useDropdown'
+
+const dropdownRef = ref<HTMLElement | null>(null)
+const { showDropdown, toggleDropdown } = useDropdown(dropdownRef)
+
+const handleSelect = async () => {
+  showDropdown.value = false
+  alert('채팅 선택')
+}
 
 defineOptions({
   name: 'ChatListLayout',
