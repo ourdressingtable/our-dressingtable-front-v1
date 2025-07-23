@@ -1,9 +1,9 @@
 .base-header {
-  width: 100%;
-  max-width: 480px;
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  height: 50px;
   padding: 0rem 0rem 0.5rem 0rem;
 
   h1 {
