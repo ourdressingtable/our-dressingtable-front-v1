@@ -7,27 +7,6 @@
   margin: 0 auto;
   background-color: #fff;
 
-  .chat-list-header {
-    width: 100%;
-    max-width: 480px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0rem 0rem 0.5rem 0rem;
-
-    h1.chat-list-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      // margin-bottom: 1rem;
-    }
-    // .logo img {
-    //   width: 45px;
-    //   height: 40px;
-    //   display: block;
-    //   object-fit: contain;
-    // }
-  }
-
   .chat-list-main {
     flex: 1;
     display: flex;
