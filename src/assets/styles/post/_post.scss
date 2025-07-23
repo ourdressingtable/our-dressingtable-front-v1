@@ -9,39 +9,6 @@
   margin: 0 auto;
   background-color: #fff;
 
-  .post-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 50px;
-    padding: 0rem 0rem 0.5rem 0rem;
-    border-bottom: 1px solid #eee;
-
-    .post-title {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-      font-size: 16px;
-      font-weight: bold;
-    }
-    .back-button {
-      font-size: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-    .setting-wrapper {
-      position: relative;
-      cursor: pointer;
-
-      .setting-icon {
-        font-size: 18px;
-      }
-    }
-  }
   main {
     flex: 1;
     display: flex;
@@ -85,7 +52,7 @@
   .icons {
     display: flex;
     justify-content: space-between;
-    margin-top: 12px;
+    margin-top: 30px;
     font-size: 13px;
     color: #000;
 
@@ -102,6 +69,16 @@
       display: inline-block;
       vertical-align: middle;
       stroke-width: 0.5;
+    }
+
+    .icons-left {
+      display: flex;
+      gap: 16px; // 아이콘 간격 조절
+      align-items: center;
+    }
+    .icons-right {
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -125,9 +102,9 @@
     padding: 16px;
     flex: 1;
     overflow-y: auto;
+    border-top: 1px solid #eee;
 
     .comment-count {
-      margin: 12px 0;
       font-weight: bold;
     }
 
