@@ -5,6 +5,7 @@
 @use './post/_post' as post;
 @use './chat/chatList' as chatList;
 @use './pageHeader.scss' as pageHeader;
+@use './notification/notification' as notification;
 * {
   box-sizing: border-box;
 }
