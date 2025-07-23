@@ -7,9 +7,13 @@
       <p class="body-text">화장품 사용해봤는데, 너무 좋아요!!!!</p>
 
       <div class="icons">
-        <span> <Icon name="Heart" />10</span>
-        <span> <Icon name="MessageCircle" />10</span>
-        <span> <Icon name="Eye" />10</span>
+        <div class="icons-left">
+          <span> <Icon name="Heart" />10</span>
+          <span> <Icon name="MessageCircle" />10</span>
+        </div>
+        <div class="icons-right">
+          <span> <Icon name="Eye" />10</span>
+        </div>
       </div>
     </section>
 
