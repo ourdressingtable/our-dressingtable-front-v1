@@ -6,7 +6,7 @@
         <div ref="dropdownRef" class="setting-wrapper">
           <Icon name="MoreVertical" :size="24" @click="toggleDropdown" />
           <div v-if="showDropdown" class="dropdown-menu">
-            <button @click="handleSelect">알림 선택</button>
+            <button @click="handleSelect">채팅 선택</button>
           </div>
         </div>
       </template>
@@ -23,12 +23,13 @@ import BaseHeader from '@/components/BaseHeader.vue'
 import TheNavBar from '@/components/TheNavBar.vue'
 import Icon from '@/components/BaseIcon.vue'
 import { ref } from 'vue'
+import { useDropdown } from '@/composables/useDropdown'
 
-const showDropdown = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
-const toggleDropdown = () => (showDropdown.value = !showDropdown.value)
+const { showDropdown, toggleDropdown } = useDropdown(dropdownRef)
 
-const handleSelect = () => {
+const handleSelect = async () => {
+  showDropdown.value = false
   alert('채팅 선택')
 }
 

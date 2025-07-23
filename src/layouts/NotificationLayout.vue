@@ -22,30 +22,16 @@
 <script setup lang="ts">
 import TheNavBar from '@/components/TheNavBar.vue'
 import { RouterView } from 'vue-router'
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref } from 'vue'
 import Icon from '@/components/BaseIcon.vue'
 import BaseHeader from '@/components/BaseHeader.vue'
+import { useDropdown } from '@/composables/useDropdown'
 
-const showDropdown = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
-const toggleDropdown = () => (showDropdown.value = !showDropdown.value)
+const { showDropdown, toggleDropdown } = useDropdown(dropdownRef)
 
-const handleOutsideClick = (e: MouseEvent) => {
-  const dropdownEl = dropdownRef.value
-  if (dropdownEl && !dropdownEl.contains(e.target as Node)) {
-    showDropdown.value = false
-  }
-}
-
-onMounted(() => {
-  document.addEventListener('click', handleOutsideClick)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener('click', handleOutsideClick)
-})
-
-const handleSelect = () => {
+const handleSelect = async () => {
+  showDropdown.value = false
   alert('알림 선택')
 }
 
