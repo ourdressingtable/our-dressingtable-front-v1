@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { h, defineComponent } from 'vue'
-import * as icons from 'lucide-vue-next'
+import * as lucideIcons from 'lucide-vue-next'
 import type { LucideIcon } from 'lucide-vue-next'
+import IconNewMark from './icons/IconNewMark.vue'
+
+const allIcons = {
+  ...lucideIcons,
+  IconNewMark,
+} as const
 
 const props = withDefaults(
   defineProps<{
-    name: keyof typeof icons
+    name: keyof typeof allIcons
     size?: number
     color?: string
     strokeWidth?: number
@@ -18,7 +24,7 @@ const props = withDefaults(
 )
 
 // 아이콘 타입 보장
-const IconComponent = icons[props.name] as LucideIcon
+const IconComponent = allIcons[props.name] as LucideIcon
 
 // 렌더용 컴포넌트 정의 (하위에서 렌더)
 const RenderIcon = defineComponent({
