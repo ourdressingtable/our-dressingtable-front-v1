@@ -1,16 +1,16 @@
 <template>
   <div class="notification-layout">
-    <PageHeader>
+    <BaseHeader>
       <template #title>알림</template>
       <template #menu>
         <div ref="dropdownRef" class="setting-wrapper">
           <Icon name="MoreVertical" :size="24" @click="toggleDropdown" />
           <div v-if="showDropdown" class="dropdown-menu">
-            <button class="danger" @click="handleReport">신고하기</button>
+            <button @click="handleSelect">알림 선택</button>
           </div>
         </div>
       </template>
-    </PageHeader>
+    </BaseHeader>
 
     <main>
       <RouterView />
@@ -24,7 +24,7 @@ import TheNavBar from '@/components/TheNavBar.vue'
 import { RouterView } from 'vue-router'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import Icon from '@/components/BaseIcon.vue'
-import PageHeader from '@/components/PageHeader.vue'
+import BaseHeader from '@/components/BaseHeader.vue'
 
 const showDropdown = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
@@ -45,8 +45,8 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleOutsideClick)
 })
 
-const handleReport = () => {
-  alert('신고 접수 하시겠습니까?')
+const handleSelect = () => {
+  alert('알림 선택')
 }
 
 defineOptions({
