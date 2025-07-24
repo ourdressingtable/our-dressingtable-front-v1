@@ -1,6 +1,6 @@
 <template>
   <nav class="bottom-navbar">
-    <RouterLink to="/post/postDetail" class="nav-item" active-class="active">
+    <RouterLink to="/post/postList" class="nav-item" active-class="active">
       <Icon name="Clipboard" :size="24" />
     </RouterLink>
     <RouterLink to="/chat/chatListView" class="nav-item" active-class="active">

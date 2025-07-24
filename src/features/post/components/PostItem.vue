@@ -1,5 +1,5 @@
 <template>
-  <li class="post-item">
+  <li class="post-item" @click="goToDetail">
     <div class="post-content">
       <div class="post-left">
         <div class="category">{{ post.category }}</div>
@@ -29,8 +29,10 @@
 
 <script setup lang="ts">
 import Icon from '@/components/BaseIcon.vue'
+import { useRouter } from 'vue-router'
 
 interface Post {
+  id: number
   category: string
   title: string
   author: string
@@ -39,7 +41,13 @@ interface Post {
   comments: number
   viewCount: number
 }
-defineProps<{
+const props = defineProps<{
   post: Post
 }>()
+
+const router = useRouter()
+
+const goToDetail = () => {
+  router.push(`/post/${props.post.id}`)
+}
 </script>
