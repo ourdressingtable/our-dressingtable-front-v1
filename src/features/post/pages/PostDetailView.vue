@@ -1,18 +1,18 @@
 <template>
-  <div class="post-main">
+  <div class="post-main" v-if="post">
     <section class="content">
-      <h2 class="title">화장품 리뷰합니다!</h2>
-      <p class="meta">Stella | 2030.12.24</p>
+      <h2 class="title">{{ post.title }}</h2>
+      <p class="meta">{{ post.author }} | {{ post.date }}</p>
       <div class="image-box"></div>
-      <p class="body-text">화장품 사용해봤는데, 너무 좋아요!!!!</p>
+      <p class="body-text">{{ post.content }}</p>
 
       <div class="icons">
         <div class="icons-left">
-          <span> <Icon name="Heart" />10</span>
-          <span> <Icon name="MessageCircle" />10</span>
+          <span> <Icon name="Heart" />{{ post.likeCount }}</span>
+          <span> <Icon name="MessageCircle" />{{ post.commentCount }}</span>
         </div>
         <div class="icons-right">
-          <span> <Icon name="Eye" />10</span>
+          <span> <Icon name="Eye" />{{ post.viewCount }}</span>
         </div>
       </div>
     </section>
@@ -30,6 +30,35 @@
 import CommentInputBar from '@/features/post/components/CommentInputBar.vue'
 import CommentItem from '../components/CommentItem.vue'
 import Icon from '@/components/BaseIcon.vue'
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const postId = Number(route.params.id)
+const post = ref<Post | null>(null)
+
+interface Post {
+  id: number
+  title: string
+  content: string
+  author: string
+  date: string
+  viewCount: number
+  likeCount: number
+  commentCount: number
+}
+onMounted(() => {
+  post.value = {
+    id: postId,
+    title: '화장품 리뷰합니다!',
+    content: '화장품 사용해봤는데, 너무 좋아요!!!!',
+    author: 'Stella',
+    date: '2030.12.24',
+    viewCount: 123,
+    likeCount: 10,
+    commentCount: 2,
+  }
+})
 
 interface CommentItem {
   author: string

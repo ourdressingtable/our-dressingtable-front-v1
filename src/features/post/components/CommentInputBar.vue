@@ -2,7 +2,7 @@
   <div class="comment-input">
     <BaseInputWithIcon
       v-model="comment"
-      placeholder="메시지를 입력해주세요"
+      placeholder="댓글을 입력해주세요"
       icon="ArrowRight"
       @submit="handleSubmit"
     />

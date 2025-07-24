@@ -46,9 +46,9 @@ const routes = [
     children: [{ path: 'postList', name: 'PostListView', component: PostListView }],
   },
   {
-    path: '/post',
+    path: '/post/:id',
     component: PostLayout,
-    children: [{ path: 'postDetail', name: 'PostDetail', component: PostDetail }],
+    children: [{ path: '', name: 'PostDetail', component: PostDetail, props: true }],
   },
   {
     path: '/notification',
