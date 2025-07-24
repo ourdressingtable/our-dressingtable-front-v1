@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import NotificationItem from '@/components/molecules/NotificationItem.vue'
+import NotificationItem from '@/features/notification/components/NotificationItem.vue'
 
 interface Notification {
   date: string
