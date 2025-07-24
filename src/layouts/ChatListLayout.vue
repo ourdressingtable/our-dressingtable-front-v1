@@ -19,8 +19,8 @@
 </template>
 
 <script setup lang="ts">
-import BaseHeader from '@/components/BaseHeader.vue'
-import TheNavBar from '@/components/TheNavBar.vue'
+import BaseHeader from '@/components/organisms/BaseHeader.vue'
+import TheNavBar from '@/components/organisms/TheNavBar.vue'
 import Icon from '@/components/BaseIcon.vue'
 import { ref } from 'vue'
 import { useDropdown } from '@/composables/useDropdown'

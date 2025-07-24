@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import ChatInputBar from '@/components/molecules/ChatInputBar.vue'
-import MessageBubble from '@/components/molecules/MessageBubble.vue'
+import ChatInputBar from '@/features/chat/components/ChatInputBar.vue'
+import MessageBubble from '@/features/chat/components/MessageBubble.vue'
 
 interface Message {
   text: string

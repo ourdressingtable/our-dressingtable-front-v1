@@ -24,7 +24,7 @@
 import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import Icon from '@/components/BaseIcon.vue'
-import PageHeader from '@/components/PageHeader.vue'
+import PageHeader from '@/components/organisms/PageHeader.vue'
 import { useConfirm } from '@/composables/useConfirm'
 import { useDropdown } from '@/composables/useDropdown'
 

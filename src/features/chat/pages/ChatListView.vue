@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import ChatItem from './ChatItem.vue'
+import ChatItem from '../components/ChatItem.vue'
 
 interface Chat {
   name: string

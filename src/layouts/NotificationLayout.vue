@@ -20,11 +20,11 @@
 </template>
 
 <script setup lang="ts">
-import TheNavBar from '@/components/TheNavBar.vue'
+import TheNavBar from '@/components/organisms/TheNavBar.vue'
 import { RouterView } from 'vue-router'
 import { ref } from 'vue'
 import Icon from '@/components/BaseIcon.vue'
-import BaseHeader from '@/components/BaseHeader.vue'
+import BaseHeader from '@/components/organisms/BaseHeader.vue'
 import { useDropdown } from '@/composables/useDropdown'
 
 const dropdownRef = ref<HTMLElement | null>(null)

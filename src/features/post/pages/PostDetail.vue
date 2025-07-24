@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import CommentInputBar from '@/components/molecules/CommentInputBar.vue'
-import CommentItem from './CommentItem.vue'
+import CommentInputBar from '@/features/post/components/CommentInputBar.vue'
+import CommentItem from '../components/CommentItem.vue'
 import Icon from '@/components/BaseIcon.vue'
 
 interface CommentItem {

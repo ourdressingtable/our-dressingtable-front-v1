@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import PageHeader from '@/components/PageHeader.vue'
+import PageHeader from '@/components/organisms/PageHeader.vue'
 import Icon from '@/components/BaseIcon.vue'
 import { RouterView } from 'vue-router'
 import { ref } from 'vue'
