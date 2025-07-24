@@ -1,0 +1,189 @@
+.post-list-layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: #fff;
+
+  .category-tabs {
+    display: flex;
+    gap: 2rem;
+    // padding: 0 1rem;
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding: 0.5rem 0;
+  }
+
+  button.active {
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+  }
+  .post-list-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .search-filter {
+    padding-top: 1rem;
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background-color: #fff;
+
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        margin-left: 0.5rem;
+        background: transparent;
+      }
+
+      .sort-display {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+
+        .sort-dropdown {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          margin-top: 8px;
+          background: #fff;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 0.5rem 0;
+          z-index: 10;
+          list-style: none;
+
+          li {
+            padding: 0.5rem 1rem;
+            white-space: nowrap;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #f7f7f7;
+            }
+          }
+        }
+      }
+
+      svg {
+        flex-shrink: 0;
+      }
+    }
+  }
+  .post-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    list-style: none;
+
+    .post-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch; // 높이 맞추기
+      gap: 1rem;
+    }
+
+    .post-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .category {
+        width: fit-content;
+        padding: 2px 8px;
+        font-size: 12px;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        white-space: nowrap; // 줄바꿈 방지
+        box-sizing: border-box;
+      }
+
+      .title {
+        font-weight: bold;
+        margin: 0.5rem 0;
+      }
+
+      .bottom-line {
+        margin-top: auto;
+        .author-date {
+          font-size: 12px;
+          color: #999;
+          display: flex;
+          gap: 0.5rem;
+        }
+      }
+    }
+
+    .post-right {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      .post-thumbnail {
+        position: absolute;
+        width: 56px;
+        height: 56px;
+        background: #ddd;
+        border-radius: 8px;
+        top: 0;
+        right: 20px;
+      }
+
+      .bottom-line {
+        .stats {
+          display: flex;
+          gap: 0.5rem;
+          font-size: 12px;
+          color: #666;
+          max-width: 100%;
+          padding-top: 64px;
+
+          span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .add {
+    position: absolute;
+    bottom: 80px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #f2b5ba;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    border: none;
+    z-index: 10;
+  }
+}
