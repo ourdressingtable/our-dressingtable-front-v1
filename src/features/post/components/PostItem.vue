@@ -1,0 +1,45 @@
+<template>
+  <li class="post-item">
+    <div class="post-content">
+      <div class="post-left">
+        <div class="category">{{ post.category }}</div>
+        <div class="title">{{ post.title }}</div>
+        <div class="bottom-line">
+          <div class="author-date">
+            <span>{{ post.author }}</span>
+            <span>{{ post.date }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="post-right">
+        <div class="post-thumbnail">
+          <!-- <img> -->
+        </div>
+        <div class="bottom-line">
+          <div class="stats">
+            <span><Icon name="Heart" /> {{ post.likeCount }}</span>
+            <span><Icon name="MessageSquare" />{{ post.comments }}</span>
+            <span><Icon name="Eye" />{{ post.viewCount }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</template>
+
+<script setup lang="ts">
+import Icon from '@/components/BaseIcon.vue'
+
+interface Post {
+  category: string
+  title: string
+  author: string
+  date: string
+  likeCount: number
+  comments: number
+  viewCount: number
+}
+defineProps<{
+  post: Post
+}>()
+</script>

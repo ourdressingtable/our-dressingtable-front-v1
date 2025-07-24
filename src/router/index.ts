@@ -8,11 +8,13 @@ import AuthLayout from '@/layouts/AuthLayout.vue'
 import ChatLayout from '@/layouts/ChatLayout.vue'
 import ChatView from '@/features/chat/pages/ChatView.vue'
 import PostLayout from '@/layouts/PostLayout.vue'
-import PostDetail from '@/features/post/pages/PostDetail.vue'
+import PostDetail from '@/features/post/pages/PostDetailView.vue'
 import ChatListLayout from '@/layouts/ChatListLayout.vue'
 import ChatListView from '@/features/chat/pages/ChatListView.vue'
 import NotificationLayout from '@/layouts/NotificationLayout.vue'
 import NotificationView from '@/features/notification/pages/NotificationView.vue'
+import PostListLayout from '@/layouts/PostListLayout.vue'
+import PostListView from '@/features/post/pages/PostListView.vue'
 
 const routes = [
   {
@@ -31,22 +33,27 @@ const routes = [
   {
     path: '/chat',
     component: ChatLayout,
-    children: [{ path: 'chatView', nmae: 'ChatView', component: ChatView }],
+    children: [{ path: 'chatView', name: 'ChatView', component: ChatView }],
   },
   {
     path: '/chat',
     component: ChatListLayout,
-    children: [{ path: 'chatListView', nmae: 'ChatListView', component: ChatListView }],
+    children: [{ path: 'chatListView', name: 'ChatListView', component: ChatListView }],
+  },
+  {
+    path: '/post',
+    component: PostListLayout,
+    children: [{ path: 'postList', name: 'PostListView', component: PostListView }],
   },
   {
     path: '/post',
     component: PostLayout,
-    children: [{ path: 'postDetail', nmae: 'PostDetail', component: PostDetail }],
+    children: [{ path: 'postDetail', name: 'PostDetail', component: PostDetail }],
   },
   {
     path: '/notification',
     component: NotificationLayout,
-    children: [{ path: 'notificationView', nmae: 'notificationView', component: NotificationView }],
+    children: [{ path: 'notificationView', name: 'notificationView', component: NotificationView }],
   },
   {
     path: '/:pathMatch(.*)*',
