@@ -41,6 +41,11 @@ const routes = [
     children: [{ path: 'chatListView', name: 'ChatListView', component: ChatListView }],
   },
   {
+    path: '/chat/:id',
+    component: ChatLayout,
+    children: [{ path: '', name: 'ChatView', component: ChatView }],
+  },
+  {
     path: '/post',
     component: PostListLayout,
     children: [{ path: 'postList', name: 'PostListView', component: PostListView }],

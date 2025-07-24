@@ -13,16 +13,33 @@
 <script setup lang="ts">
 import ChatInputBar from '@/features/chat/components/ChatInputBar.vue'
 import MessageBubble from '@/features/chat/components/MessageBubble.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const chatId = Number(route.params.id)
 
 interface Message {
+  id: number
   text: string
   time: string
   isMine: boolean
 }
-const messages: Message[] = [
-  { text: '안녕하세요!', time: '오후 3:45', isMine: false },
-  { text: '제가 사용하는 화장품을 알려드릴게요!', time: '오후 4:23', isMine: true },
-  { text: '어떤 화장품이 궁금하신가요?', time: '오후 4:23', isMine: true },
-  { text: '감사합니다! 그대로 구매할게요!', time: '오후 5:45', isMine: false },
-]
+
+const messageMap: Record<number, Message[]> = {
+  1: [
+    { id: 1, text: '안녕하세요!', time: '오후 3:45', isMine: false },
+    { id: 2, text: '제가 사용하는 화장품을 알려드릴게요!', time: '오후 4:23', isMine: true },
+    { id: 3, text: '어떤 화장품이 궁금하신가요?', time: '오후 4:23', isMine: true },
+    { id: 4, text: '감사합니다! 그대로 구매할게요!', time: '오후 5:45', isMine: false },
+  ],
+  2: [
+    { id: 1, text: 'Summer입니다 ☀️', time: '오전 10:12', isMine: false },
+    { id: 2, text: '여름 좋아하시나요?', time: '오전 10:13', isMine: false },
+  ],
+  3: [
+    { id: 1, text: 'Joe here.', time: '오후 11:12', isMine: false },
+    { id: 2, text: 'Nice to meet you.', time: '오후 11:13', isMine: true },
+  ],
+}
+const messages = messageMap[chatId] || []
 </script>
