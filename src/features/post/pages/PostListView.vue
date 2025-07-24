@@ -27,7 +27,7 @@ import Icon from '@/components/BaseIcon.vue'
 import SearchSortBar from '../components/SearchSortBar.vue'
 import { ref, computed } from 'vue'
 
-const categories = ['자유', '질문', '골라줘', '후기', '신상/할인 정보']
+const categories = ['자유', '질문', '골라줘', '후기', '정보']
 const selectedCategory = ref('')
 const searchQuery = ref('')
 const sortOption = ref('latest')
