@@ -1,5 +1,5 @@
 <template>
-  <li class="post-item">
+  <li class="post-item" @click="goToDetail">
     <div class="post-content">
       <div class="post-left">
         <div class="category">{{ post.category }}</div>
@@ -17,9 +17,9 @@
         </div>
         <div class="bottom-line">
           <div class="stats">
-            <span><Icon name="Heart" /> {{ post.likeCount }}</span>
-            <span><Icon name="MessageSquare" />{{ post.comments }}</span>
-            <span><Icon name="Eye" />{{ post.viewCount }}</span>
+            <span><Icon name="Heart" /> {{ formatNumber(post.likeCount) }}</span>
+            <span><Icon name="MessageSquare" />{{ formatNumber(post.comments) }}</span>
+            <span><Icon name="Eye" />{{ formatNumber(post.viewCount) }}</span>
           </div>
         </div>
       </div>
@@ -29,8 +29,13 @@
 
 <script setup lang="ts">
 import Icon from '@/components/BaseIcon.vue'
+import { useRouter } from 'vue-router'
+import { useFormat } from '@/composables/useFormat'
+
+const { formatNumber } = useFormat()
 
 interface Post {
+  id: number
   category: string
   title: string
   author: string
@@ -39,7 +44,13 @@ interface Post {
   comments: number
   viewCount: number
 }
-defineProps<{
+const props = defineProps<{
   post: Post
 }>()
+
+const router = useRouter()
+
+const goToDetail = () => {
+  router.push(`/post/${props.post.id}`)
+}
 </script>
