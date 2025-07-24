@@ -13,14 +13,9 @@
     flex-direction: column;
     padding: 10px;
 
-    // h1.chat-list-title {
-    //   font-size: 1rem;
-    //   font-weight: bold;
-    //   // margin-bottom: 1rem;
-    // }
     .chat-list-wrapper {
-      border: 1px solid #ddd;
-      border-radius: 12px;
+      border-bottom: 1px solid #eee;
+      // border: 1px solid #eee;
       overflow: hidden;
     }
     .chat-list {
