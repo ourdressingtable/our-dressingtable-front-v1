@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-item">
+  <div class="chat-item" @click="goToChatRoom">
     <div class="chat-left">
       <div class="profile-icon">{{ chat.profile }}</div>
       <div class="chat-content">
@@ -12,12 +12,22 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  chat: {
-    name: string
-    message: string
-    time: string
-    profile: string
-  }
+import { useRouter } from 'vue-router'
+
+interface Chat {
+  id: number
+  name: string
+  message: string
+  time: string
+  profile: string
+}
+
+const props = defineProps<{
+  chat: Chat
 }>()
+const router = useRouter()
+
+const goToChatRoom = () => {
+  router.push(`/chat/${props.chat.id}`)
+}
 </script>
