@@ -11,7 +11,6 @@
   .category-tabs {
     display: flex;
     gap: 2rem;
-    // padding: 0 1rem;
   }
 
   button {
@@ -19,6 +18,7 @@
     border: none;
     font-size: 14px;
     padding: 0.5rem 0;
+    width: 20%;
   }
 
   button.active {
@@ -32,7 +32,7 @@
     padding: 10px;
   }
   .search-filter {
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     .search-wrapper {
       display: flex;
       align-items: center;
@@ -129,6 +129,7 @@
           color: #999;
           display: flex;
           gap: 0.5rem;
+          align-items: flex-end;
         }
       }
     }
@@ -185,5 +186,9 @@
     font-size: 24px;
     border: none;
     z-index: 10;
+
+    svg {
+      stroke-width: 4px;
+    }
   }
 }
