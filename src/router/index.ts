@@ -15,7 +15,8 @@ import NotificationLayout from '@/layouts/NotificationLayout.vue'
 import NotificationView from '@/features/notification/pages/NotificationView.vue'
 import PostListLayout from '@/layouts/PostListLayout.vue'
 import PostListView from '@/features/post/pages/PostListView.vue'
-
+import MyCosmeticRegisterForm from '@/features/myCosmetic/pages/MyCosmeticRegisterForm.vue'
+import MyCosmeticRegisterLayout from '@/layouts/MyCosmeticRegisterLayout.vue'
 const routes = [
   {
     path: '/',
@@ -29,6 +30,11 @@ const routes = [
       { path: 'login', name: 'Login', component: LoginPage },
       { path: 'register', name: 'Register', component: RegisterPage },
     ],
+  },
+  {
+    path: '/myCosmetic',
+    component: MyCosmeticRegisterLayout,
+    children: [{ path: 'register', name: 'myCosmeticRegister', component: MyCosmeticRegisterForm }],
   },
   {
     path: '/chat',
