@@ -1,33 +1,55 @@
 <template>
-  <div class="price-input-wrapper">
-    <span class="prefix">₩</span>
+  <div class="floating-input-wrapper" :class="{ filled: !!modelValue, focused }">
+    <span v-if="focused || typeof modelValue === 'number'" class="prefix">₩</span>
     <input
-      :value="displayValue"
-      :placeholder="placeholder"
       type="text"
-      inputmode="numeric"
+      :value="displayValue"
       @input="onInput"
-      class="price-input"
+      @focus="focused = true"
+      @blur="focused = false"
+      class="floating-input"
+      inputmode="numeric"
     />
+    <label class="floating-label" :class="{ float: focused || modelValue !== null }">
+      {{ label }}
+    </label>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps<{
-  modelValue: number
+  modelValue: number | null
+  label?: string
   placeholder?: string
 }>()
+
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: number): void
+  (e: 'update:modelValue', value: number | null): void
 }>()
+
+const focused = ref(false)
+const hasInteracted = ref(false)
+
 const displayValue = computed(() => {
-  return props.modelValue ? props.modelValue.toLocaleString() : ''
+  if (!hasInteracted.value && (props.modelValue === null || props.modelValue === 0)) {
+    return ''
+  }
+
+  return typeof props.modelValue === 'number' && !isNaN(props.modelValue)
+    ? props.modelValue.toLocaleString()
+    : ''
 })
-const onInput = (event: Event) => {
-  const raw = (event.target as HTMLInputElement).value
-  const numeric = Number(raw.replace(/[^\d]/g, ''))
-  emit('update:modelValue', numeric)
+
+const onInput = (e: Event) => {
+  hasInteracted.value = true
+  const raw = (e.target as HTMLInputElement).value
+  const cleaned = raw.replace(/[^\d]/g, '')
+  if (cleaned === '') {
+    emit('update:modelValue', null)
+  } else {
+    emit('update:modelValue', Number(cleaned))
+  }
 }
 </script>

@@ -1,34 +1,33 @@
 <template>
-  <input
-    :type="type"
-    :placeholder="placeholder"
-    :name="name"
-    :id="id"
-    :maxlength="maxlength"
-    :autocomplete="autocomplete"
-    :value="modelValue"
-    @input="onInput"
-    class="base-input"
-  />
+  <div class="floating-input-wrapper" :class="{ filled: modelValue, focused }">
+    <input
+      :value="modelValue"
+      @input="onInput"
+      @focus="focused = true"
+      @blur="focused = false"
+      class="floating-input"
+      :type="type"
+    />
+    <label v-if="label" class="floating-label">{{ label }}</label>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 defineProps<{
   modelValue: string
+  label?: string
   type?: string
-  placeholder?: string
-  name?: string
-  id?: string
-  maxlength?: string
-  autocomplete?: string
 }>()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
 
-const onInput = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  emit('update:modelValue', target.value)
+const focused = ref(false)
+
+const onInput = (e: Event) => {
+  emit('update:modelValue', (e.target as HTMLInputElement).value)
 }
 </script>

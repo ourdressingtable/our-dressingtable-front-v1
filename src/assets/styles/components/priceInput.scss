@@ -1,21 +1,26 @@
-.price-input-wrapper {
+@use './baseInput.scss';
+
+.floating-input-wrapper {
+  align-items: center;
+  display: flex;
+}
+
+.floating-input {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.floating-input .float {
+  top: 6px;
+  font-size: 11px;
+  color: #eba6a9;
+}
+.prefix {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-right: 4px;
+  color: #555;
   display: flex;
   align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 12px 16px;
-}
-
-.prefix {
-  margin-right: 8px;
-  color: #666;
-  font-size: 14px;
-}
-
-.price-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 14px;
-  background: transparent;
+  padding: 5px 0px 0px 0px;
 }

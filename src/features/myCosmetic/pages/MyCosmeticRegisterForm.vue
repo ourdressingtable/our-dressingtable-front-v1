@@ -1,21 +1,26 @@
 <template>
   <div class="register-form">
     <ImageUploader v-model="form.image" />
-    <BaseInput v-model="form.brand" placeholder="브랜드명을 입력하세요" />
-    <BaseInput v-model="form.name" placeholder="제품명을 입력하세요" />
+    <BaseInput v-model="form.brand" label="브랜드명" placeholder="브랜드명을 입력하세요" />
+    <BaseInput v-model="form.name" label="제품명" placeholder="제품명을 입력하세요" />
     <p v-if="errors.name" class="input-error">{{ errors.name }}</p>
-    <BaseSelect
-      v-model="form.category"
-      placeholder="카테고리를 선택하세요"
-      :options="categoryOptions"
+    <BaseSelect v-model="form.category" label="카테고리" :options="categoryOptions" />
+    <BaseDatePicker
+      v-model="form.expirationDate"
+      label="유통기한"
+      placeholder="유통기한 (YYYY-MM-DD)"
     />
-    <BaseDatePicker v-model="form.expirationDate" placeholder="유통기한 (YYYY-MM-DD)" />
     <p v-if="errors.expirationDate" class="input-error">{{ errors.expirationDate }}</p>
-    <BaseDatePicker v-model="form.openDate" placeholder="오픈 날짜 (YYYY-MM-DD)" />
+    <BaseDatePicker
+      v-model="form.openDate"
+      label="오픈 날짜"
+      placeholder="오픈 날짜 (YYYY-MM-DD)"
+    />
     <p v-if="errors.openDate" class="input-error">{{ errors.openDate }}</p>
 
     <BaseSelect
       v-model="form.usagePeriodAfterOpen"
+      label="오픈 후 사용 기한"
       placeholder="오픈 후 사용 기한"
       :options="usagePeriodOptions"
     />
@@ -28,9 +33,9 @@
     <div v-if="finalExpirationDate">
       <p class="final-expiration-text">최종 만료일: {{ finalExpirationDate }}</p>
     </div>
-    <PriceInput v-model="form.price" placeholder="0" />
+    <PriceInput v-model="form.price" label="구매가격" placeholder="" />
     <p v-if="errors.price" class="input-error">{{ errors.price }}</p>
-    <BaseInput v-model="form.shop" placeholder="구매처를 입력하세요" />
+    <BaseInput v-model="form.shop" label="구매처" placeholder="구매처를 입력하세요" />
 
     <div class="alarm-section">
       <div class="alarm-label">알림 설정</div>
@@ -61,7 +66,8 @@ import ImageUploader from '@/components/atoms/ImageUploader.vue'
 import PriceInput from '@/components/atoms/PriceInput.vue'
 import { useFinalExpirationDate } from '@/composables/useFinalExpirationDate'
 import type { CosmeticForm } from '@/type/CosmeticForm'
-import { computed, reactive, ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useFormValidation } from '@/composables/useFormValidation'
 
 const form = ref<CosmeticForm>({
   image: null,
@@ -71,7 +77,7 @@ const form = ref<CosmeticForm>({
   expirationDate: '',
   openDate: '',
   usagePeriodAfterOpen: '',
-  price: 0,
+  price: null,
   shop: '',
   alarmEnabled: false,
   alarmDate: '',
@@ -103,41 +109,44 @@ const showCustomDateField = computed(() => {
 
 const { finalExpirationDate } = useFinalExpirationDate(form)
 
-const errors = reactive<Record<string, string>>({})
-const validateForm = () => {
-  errors.name = form.value.name.trim() === '' ? '제품명을 입력해주세요.' : ''
+const { errors, validate } = useFormValidation(form)
 
-  if (isNaN(form.value.price) || form.value.price < 0) {
-    errors.price = '가격은 숫자로 입력해주세요.'
-  } else {
-    errors.price = ''
-  }
+// const errors = reactive<Record<string, string>>({})
+// const validateForm = () => {
+//   errors.name = form.value.name.trim() === '' ? '제품명을 입력해주세요.' : ''
 
-  const isDate = (str: string) => /^\d{4}-\d{2}-\d{2}$/.test(str)
+//   if (isNaN(form.value.price) || form.value.price < 0) {
+//     errors.price = '가격은 숫자로 입력해주세요.'
+//   } else {
+//     errors.price = ''
+//   }
 
-  errors.openDate =
-    form.value.openDate && !isDate(form.value.openDate) ? '날짜 형식은 YYYY-MM-DD여야 합니다.' : ''
+//   const isDate = (str: string) => /^\d{4}-\d{2}-\d{2}$/.test(str)
 
-  errors.expirationDate =
-    form.value.expirationDate && !isDate(form.value.expirationDate)
-      ? '날짜 형식은 YYYY-MM-DD여야 합니다.'
-      : ''
+//   errors.openDate =
+//     form.value.openDate && !isDate(form.value.openDate) ? '날짜 형식은 YYYY-MM-DD여야 합니다.' : ''
 
-  if (form.value.usagePeriodAfterOpen === 'custom') {
-    errors.customUsageDate =
-      form.value.customUsageDate && !isDate(form.value.customUsageDate)
-        ? '직접 입력 날짜 형식(YYYY-MM-DD)이 올바르지 않습니다.'
-        : ''
-  } else {
-    errors.customUsageDate = ''
-  }
+//   errors.expirationDate =
+//     form.value.expirationDate && !isDate(form.value.expirationDate)
+//       ? '날짜 형식은 YYYY-MM-DD여야 합니다.'
+//       : ''
 
-  return Object.values(errors).every((v) => v === '')
-}
+//   if (form.value.usagePeriodAfterOpen === 'custom') {
+//     errors.customUsageDate =
+//       form.value.customUsageDate && !isDate(form.value.customUsageDate)
+//         ? '직접 입력 날짜 형식(YYYY-MM-DD)이 올바르지 않습니다.'
+//         : ''
+//   } else {
+//     errors.customUsageDate = ''
+//   }
+
+//   return Object.values(errors).every((v) => v === '')
+// }
 
 const submitForm = () => {
-  if (!validateForm()) return
+  // if (!validateForm()) return
+  if (!validate()) return
   console.log('폼 전송:', form.value)
-  // TODO: 유효성 검사 및 API 연동
+  // TODO: API 연동
 }
 </script>
