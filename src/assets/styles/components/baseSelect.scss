@@ -1,16 +1,9 @@
-.base-select-wrapper {
-  width: 100%;
-}
+@use './baseInput.scss';
 
-.base-select {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background-color: #fff;
+.floating-input {
   appearance: none;
 }
-.base-select:focus {
-  border-color: #eba6a9;
+
+.floating-label {
+  transition: all 0.2s ease;
 }

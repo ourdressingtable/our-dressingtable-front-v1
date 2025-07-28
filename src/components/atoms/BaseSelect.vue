@@ -1,38 +1,39 @@
 <template>
-  <div class="base-select-wrapper">
+  <div class="floating-input-wrapper" :class="{ filled: modelValue, focused }">
     <select
-      :name="name"
-      :id="id"
-      :disabled="disabled"
       :value="modelValue"
       @change="onChange"
-      class="base-select"
+      @focus="focused = true"
+      @blur="focused = false"
+      class="floating-input"
     >
-      <option v-if="placeholder" disabled value="">
-        {{ placeholder }}
-      </option>
-      <option v-for="(option, index) in options" :key="index" :value="option.value">
+      <!-- <option disabled value="">{{ placeholder }}</option> -->
+      <option v-for="option in options" :key="option.value" :value="option.value">
         {{ option.label }}
       </option>
     </select>
+    <label class="floating-label">{{ label }}</label>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 defineProps<{
-  name?: string
-  id?: string
+  modelValue: string
+  options: { label: string; value: string }[]
+  label?: string
   placeholder?: string
-  disabled?: boolean
-  modelValue: string | number
-  options: { label: string; value: string | number }[]
-}>()
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number): void
 }>()
 
-const onChange = (event: Event) => {
-  const target = event.target as HTMLInputElement
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void
+}>()
+
+const focused = ref(false)
+
+const onChange = (e: Event) => {
+  const target = e.target as HTMLSelectElement
   emit('update:modelValue', target.value)
 }
 </script>

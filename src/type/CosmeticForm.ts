@@ -6,7 +6,7 @@ export interface CosmeticForm {
   expirationDate: string
   openDate: string
   usagePeriodAfterOpen: string
-  price: number
+  price: number | null
   shop: string
   alarmEnabled: boolean
   alarmDate: string
