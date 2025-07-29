@@ -12,6 +12,7 @@ export function useFinalExpirationDate(form: Ref<CosmeticForm>) {
     const custom = form.value.customUsageDate
     const expirationDate = form.value.expirationDate
 
+    if (usage === 'custom') return ''
     if (!openDate || !usage) return ''
 
     if (usage === 'custom') {

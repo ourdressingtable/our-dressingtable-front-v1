@@ -4,7 +4,8 @@
     <BaseInput v-model="form.brand" label="브랜드명" placeholder="브랜드명을 입력하세요" />
     <BaseInput v-model="form.name" label="제품명" placeholder="제품명을 입력하세요" />
     <p v-if="errors.name" class="input-error">{{ errors.name }}</p>
-    <BaseSelect v-model="form.category" label="카테고리" :options="categoryOptions" />
+    <!-- <BaseSelect v-model="form.category" label="카테고리" :options="categoryOptions" /> -->
+    <BaseCategorySelector v-model="form.category" label="카테고리" />
     <BaseDatePicker
       v-model="form.expirationDate"
       label="유통기한"
@@ -26,12 +27,20 @@
     />
     <BaseDatePicker
       v-if="showCustomDateField"
+      label="사용 기한"
       v-model="form.customUsageDate"
       placeholder="직접 입력 날짜 (YYYY-MM-DD)"
     />
     <p v-if="errors.customUsageDate" class="input-error">{{ errors.customUsageDate }}</p>
-    <div v-if="finalExpirationDate">
-      <p class="final-expiration-text">최종 만료일: {{ finalExpirationDate }}</p>
+    <div
+      class="date-input-wrapper filled"
+      v-if="finalExpirationDate && form.usagePeriodAfterOpen !== 'custom'"
+    >
+      <label class="fixed-label">사용 기한</label>
+
+      <p class="date-input">
+        {{ finalExpirationDate }}
+      </p>
     </div>
     <PriceInput v-model="form.price" label="구매가격" placeholder="" />
     <p v-if="errors.price" class="input-error">{{ errors.price }}</p>
@@ -41,15 +50,18 @@
       <div class="alarm-label">알림 설정</div>
       <BaseToggle v-model="form.alarmEnabled" />
     </div>
-    <div v-if="form.alarmEnabled" class="alarm-button">
-      <button
-        v-for="option in alarmDateOptions"
-        :key="option.value"
-        :class="['alarm-btn', { selected: form.alarmDate === option.value }]"
-        @click="form.alarmDate = option.value"
-      >
-        {{ option.label }}
-      </button>
+    <div v-if="form.alarmEnabled" class="alarm-box">
+      <div class="alarm-sub-label">알림 날짜</div>
+      <div class="alarm-buttons">
+        <button
+          v-for="option in alarmDateOptions"
+          :key="option.value"
+          :class="['alarm-btn', { selected: form.alarmDate === option.value }]"
+          @click="form.alarmDate = option.value"
+        >
+          {{ option.label }}
+        </button>
+      </div>
     </div>
     <div class="submit-section">
       <button class="submit-btn" @click="submitForm">등록하기</button>
@@ -58,16 +70,17 @@
 </template>
 
 <script setup lang="ts">
+import { useFinalExpirationDate } from '@/composables/useFinalExpirationDate'
+import type { CosmeticForm } from '@/type/CosmeticForm'
+import { computed, ref } from 'vue'
+import { useFormValidation } from '@/composables/useFormValidation'
 import BaseDatePicker from '@/components/atoms/BaseDatePicker.vue'
 import BaseInput from '@/components/atoms/BaseInput.vue'
 import BaseSelect from '@/components/atoms/BaseSelect.vue'
 import BaseToggle from '@/components/atoms/BaseToggle.vue'
 import ImageUploader from '@/components/atoms/ImageUploader.vue'
 import PriceInput from '@/components/atoms/PriceInput.vue'
-import { useFinalExpirationDate } from '@/composables/useFinalExpirationDate'
-import type { CosmeticForm } from '@/type/CosmeticForm'
-import { computed, ref } from 'vue'
-import { useFormValidation } from '@/composables/useFormValidation'
+import BaseCategorySelector from '@/components/atoms/BaseCategorySelector.vue'
 
 const form = ref<CosmeticForm>({
   image: null,
@@ -80,16 +93,11 @@ const form = ref<CosmeticForm>({
   price: null,
   shop: '',
   alarmEnabled: false,
-  alarmDate: '',
+  alarmDate: '30',
   customUsageDate: '',
   finalExpirationDate: '',
 })
 
-const categoryOptions = [
-  { label: '스킨케어 > 크림', value: 'skincare_cream' },
-  { label: '메이크업 > 립스틱', value: 'makeup_lipstick' },
-  { label: '헤어 > 샴푸', value: 'hair_shampoo' },
-]
 const usagePeriodOptions = [
   { label: '1개월', value: '1M' },
   { label: '3개월', value: '3M' },

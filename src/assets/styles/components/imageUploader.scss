@@ -1,6 +1,6 @@
 .image-uploader {
   position: relative;
-  width: 100%;
+  width: 200px;
   height: 160px;
   background-color: #f8eaea;
   border-radius: 16px;
@@ -9,6 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 12px;
 }
 
 .file-input {

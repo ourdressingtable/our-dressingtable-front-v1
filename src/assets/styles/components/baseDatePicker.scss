@@ -1,17 +1,40 @@
-// .base-date-picker {
-//   width: 100%;
-// }
+.date-input-wrapper {
+  position: relative;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px 12px 6px 12px; /* label 공간 확보 */
+  background-color: fff;
+  // background-color: #fafafa;
+  transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
 
-// .date-input {
-//   width: 100%;
-//   padding: 12px 16px;
-//   font-size: 14px;
-//   border: 1px solid #ddd;
-//   border-radius: 12px;
-//   outline: none;
-//   transition: border-color 0.2s;
-// }
+.date-input-wrapper.focused {
+  border-color: #eba6a9;
+}
 
-// .date-input:focus {
-//   border-color: #eba6a9;
-// }
+.date-input {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.fixed-label {
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  font-size: 11px;
+  color: #aaa;
+  transition: color 0.2s;
+  pointer-events: none;
+}
+
+.date-input-wrapper.focused .fixed-label,
+.date-input-wrapper.filled .fixed-label {
+  color: #eba6a9;
+}
