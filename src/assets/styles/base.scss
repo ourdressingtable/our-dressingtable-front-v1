@@ -9,12 +9,6 @@
 @use './baseHeader.scss' as baseHeader;
 @use './post/postList' as postList;
 @use './myCosmetic/myCosmeticRegisterForm.scss' as myCosmeticRegister;
-@use './components/baseDatePicker.scss';
-@use './components/baseInput.scss';
-@use './components/baseSelect.scss';
-@use './components/baseToggle.scss';
-@use './components/imageUploader.scss';
-@use './components/priceInput.scss';
 
 * {
   box-sizing: border-box;

@@ -1,0 +1,81 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.tabs button {
+  padding: 6px 12px;
+  border: none;
+  background: #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tabs button.active {
+  background: #eba6a9;
+  color: white;
+}
+.category-list {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.column button {
+  padding: 6px;
+  background: #f4f4f4;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.column button.selected {
+  background: #eba6a9;
+  color: white;
+}
+.current {
+  margin-top: 1rem;
+  font-size: 14px;
+  text-align: center;
+}

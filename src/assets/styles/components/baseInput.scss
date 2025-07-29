@@ -1,12 +1,11 @@
 .floating-input-wrapper {
   position: relative;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   border-radius: 12px;
-  padding-top: 16px;
-  padding-bottom: 4px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 16px 12px 4px;
+  // background-color: #fafafa;
   background-color: #fff;
+  margin-bottom: 8px;
 }
 
 .floating-input {
@@ -24,12 +23,13 @@
 
 .floating-label {
   position: absolute;
-  top: 12px;
+  top: 50%;
   left: 12px;
   font-size: 13px;
   color: #aaa;
   transition: 0.2s ease all;
   pointer-events: none;
+  transform: translateY(-50%);
 }
 
 .filled .floating-label,
@@ -37,4 +37,5 @@
   top: 6px;
   font-size: 11px;
   color: #eba6a9;
+  transform: none;
 }
