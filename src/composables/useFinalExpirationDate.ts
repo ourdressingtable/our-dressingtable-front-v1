@@ -7,19 +7,16 @@ dayjs.extend(minMax)
 
 export function useFinalExpirationDate(form: Ref<CosmeticForm>) {
   const finalExpirationDate = computed(() => {
-    const openDate = form.value.openDate
-    const usage = form.value.usagePeriodAfterOpen
-    const custom = form.value.customUsageDate
-    const expirationDate = form.value.expirationDate
+    const { openDate, usagePeriodAfterOpen, customUsageDate, expirationDate } = form.value
 
-    if (usage === 'custom') return ''
-    if (!openDate || !usage) return ''
-
-    if (usage === 'custom') {
-      return custom || ''
+    // 사용 기한 직접 입력
+    if (usagePeriodAfterOpen === 'custome') {
+      return customUsageDate || ''
     }
 
-    const months = Number(usage.replace('M', ''))
+    if (!openDate || !usagePeriodAfterOpen) return ''
+
+    const months = Number(usagePeriodAfterOpen.replace('M', ''))
     if (isNaN(months)) return ''
 
     const openPlusUsage = dayjs(openDate).add(months, 'month')
