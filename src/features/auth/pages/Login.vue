@@ -1,8 +1,7 @@
 <template>
   <div class="auth-main">
+    <h1 class="auth-title">로그인</h1>
     <div class="auth-box">
-      <h1 class="auth-title">로그인</h1>
-
       <form class="auth-form">
         <div class="form-group">
           <label for="이메일">이메일</label>
