@@ -9,7 +9,7 @@
 @use './baseHeader.scss' as baseHeader;
 @use './post/postList' as postList;
 @use './myCosmetic/myCosmeticRegisterForm.scss' as myCosmeticRegister;
-
+@use './dressingtable/index' as dressingtable;
 * {
   box-sizing: border-box;
 }

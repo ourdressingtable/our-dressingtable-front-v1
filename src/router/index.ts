@@ -17,6 +17,8 @@ import PostListLayout from '@/layouts/PostListLayout.vue'
 import PostListView from '@/features/post/pages/PostListView.vue'
 import MyCosmeticRegisterForm from '@/features/myCosmetic/pages/MyCosmeticRegisterForm.vue'
 import MyCosmeticRegisterLayout from '@/layouts/MyCosmeticRegisterLayout.vue'
+import MyDressingtableListLayout from '@/layouts/MyDressingtableListLayout.vue'
+import MyDressingtableList from '@/features/dressingtable/pages/MyDressingtableList.vue'
 const routes = [
   {
     path: '/',
@@ -30,6 +32,11 @@ const routes = [
       { path: 'login', name: 'Login', component: LoginPage },
       { path: 'register', name: 'Register', component: RegisterPage },
     ],
+  },
+  {
+    path: '/dressingtable',
+    component: MyDressingtableListLayout,
+    children: [{ path: 'list', name: 'myDressingtaleList', component: MyDressingtableList }],
   },
   {
     path: '/myCosmetic',
