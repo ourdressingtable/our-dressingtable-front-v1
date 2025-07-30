@@ -15,10 +15,13 @@ import NotificationLayout from '@/layouts/NotificationLayout.vue'
 import NotificationView from '@/features/notification/pages/NotificationView.vue'
 import PostListLayout from '@/layouts/PostListLayout.vue'
 import PostListView from '@/features/post/pages/PostListView.vue'
-import MyCosmeticRegisterForm from '@/features/myCosmetic/pages/MyCosmeticRegisterForm.vue'
+import MyCosmeticRegisterForm from '@/features/dressingtable/pages/MyCosmeticRegisterForm.vue'
 import MyCosmeticRegisterLayout from '@/layouts/MyCosmeticRegisterLayout.vue'
 import MyDressingtableListLayout from '@/layouts/MyDressingtableListLayout.vue'
 import MyDressingtableList from '@/features/dressingtable/pages/MyDressingtableList.vue'
+import MyDressingtableLayout from '@/layouts/MyDressingtableLayout.vue'
+import MyDressingtableView from '@/features/dressingtable/pages/MyDressingtableView.vue'
+
 const routes = [
   {
     path: '/',
@@ -39,15 +42,20 @@ const routes = [
     children: [{ path: 'list', name: 'myDressingtaleList', component: MyDressingtableList }],
   },
   {
-    path: '/myCosmetic',
-    component: MyCosmeticRegisterLayout,
-    children: [{ path: 'register', name: 'myCosmeticRegister', component: MyCosmeticRegisterForm }],
+    path: '/dressingtable/:id',
+    component: MyDressingtableLayout,
+    children: [{ path: '', name: 'myDressingtaleView', component: MyDressingtableView }],
   },
   {
-    path: '/chat',
-    component: ChatLayout,
-    children: [{ path: 'chatView', name: 'ChatView', component: ChatView }],
+    path: '/dressingtable/:id',
+    component: MyCosmeticRegisterLayout,
+    children: [{ path: 'add', name: 'myCosmeticRegister', component: MyCosmeticRegisterForm }],
   },
+  // {
+  //   path: '/chat',
+  //   component: ChatLayout,
+  //   children: [{ path: 'chatView', name: 'ChatView', component: ChatView }],
+  // },
   {
     path: '/chat',
     component: ChatListLayout,
