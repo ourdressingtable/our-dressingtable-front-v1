@@ -6,7 +6,7 @@
     <RouterLink to="/chat/chatListView" class="nav-item" active-class="active">
       <Icon name="MessageSquare" :size="24" />
     </RouterLink>
-    <RouterLink to="/" class="nav-item" exact-active-class="active">
+    <RouterLink to="/dressingtable/list" class="nav-item" exact-active-class="active">
       <Icon name="Home" :size="24" />
     </RouterLink>
 
