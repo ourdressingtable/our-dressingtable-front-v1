@@ -44,12 +44,21 @@ const routes = [
   {
     path: '/dressingtable/:id',
     component: MyDressingtableLayout,
-    children: [{ path: '', name: 'myDressingtaleView', component: MyDressingtableView }],
+    children: [
+      { path: '', name: 'myDressingtaleView', component: MyDressingtableView, props: true },
+    ],
   },
   {
-    path: '/dressingtable/:id',
+    path: '/dressingtable/:id/add',
     component: MyCosmeticRegisterLayout,
-    children: [{ path: 'add', name: 'myCosmeticRegister', component: MyCosmeticRegisterForm }],
+    children: [
+      {
+        path: '',
+        name: 'myCosmeticRegister',
+        component: MyCosmeticRegisterForm,
+        props: true,
+      },
+    ],
   },
   // {
   //   path: '/chat',

@@ -23,6 +23,7 @@ import { ref } from 'vue'
 import BaseHeader from '@/components/organisms/BaseHeader.vue'
 import TheNavBar from '@/components/organisms/TheNavBar.vue'
 import { useDropdown } from '@/composables/useDropdown'
+import Icon from '@/components/BaseIcon.vue'
 
 const dropdownRef = ref<HTMLElement | null>(null)
 const { showDropdown, toggleDropdown } = useDropdown(dropdownRef)

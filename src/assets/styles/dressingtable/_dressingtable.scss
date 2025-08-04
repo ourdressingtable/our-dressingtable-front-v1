@@ -1,4 +1,5 @@
 .dressingtable-layout {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 1rem 1rem;
@@ -7,10 +8,48 @@
   margin: 0 auto;
   background-color: #fff;
 
-  main {
-    flex: 1;
+  // main {
+  //   flex: 1;
+  //   display: flex;
+  //   flex-direction: column;
+  //   overflow: hidden;
+  // }
+
+  .dressingtable-main {
+    padding-top: 16px;
+
+    .cosmetic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      padding: 0 16px;
+    }
+  }
+  @media (min-width: 768px) {
+    .cosmetic-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .add {
+    position: absolute;
+    bottom: 40px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #f2b5ba;
+    color: white;
+    align-items: center;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    border: none;
+    z-index: 10;
+
+    svg {
+      stroke-width: 4px;
+    }
   }
 }
