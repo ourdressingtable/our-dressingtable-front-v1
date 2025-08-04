@@ -22,7 +22,7 @@ defineProps<{
 <style scoped lang="scss">
 .my-cosmetic-card {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
