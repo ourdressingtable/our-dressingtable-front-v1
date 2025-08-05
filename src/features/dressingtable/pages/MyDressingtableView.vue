@@ -8,13 +8,18 @@
     <div class="cosmetic-grid">
       <MyCosmeticCard v-for="cosmetic in filteredList" :key="cosmetic.id" :cosmetic="cosmetic" />
     </div>
+
+    <PlusIconButton @click="goToRegister" />
   </div>
 </template>
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import BaseSelect from '@/components/atoms/BaseSelect.vue'
 import MyCosmeticCard from '../components/MyCosmeticCard.vue'
+import PlusIconButton from '@/components/atoms/PlusIconButton.vue'
 
+const props = defineProps<{ id: string }>()
 const selectedCategory = ref('전체')
 const selectedSort = ref('등록순')
 
@@ -43,21 +48,10 @@ const filteredList = computed(() =>
     (item) => selectedCategory.value === '전체' || item.brand === selectedCategory.value,
   ),
 )
-</script>
-<style scoped lang="scss">
-.dressingtable-main {
-  padding-top: 16px;
 
-  .cosmetic-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    padding: 0 16px;
-  }
+const router = useRouter()
+
+const goToRegister = () => {
+  router.push(`/dressingtable/${props.id}/add`)
 }
-@media (min-width: 768px) {
-  .cosmetic-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-</style>
+</script>
