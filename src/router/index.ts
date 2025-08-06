@@ -21,6 +21,7 @@ import MyDressingtableListLayout from '@/layouts/MyDressingtableListLayout.vue'
 import MyDressingtableList from '@/features/dressingtable/pages/MyDressingtableList.vue'
 import MyDressingtableLayout from '@/layouts/MyDressingtableLayout.vue'
 import MyDressingtableView from '@/features/dressingtable/pages/MyDressingtableView.vue'
+import MyCosmeticDetailView from '@/features/dressingtable/pages/MyCosmeticDetailView.vue'
 
 const routes = [
   {
@@ -45,7 +46,20 @@ const routes = [
     path: '/dressingtable/:id',
     component: MyDressingtableLayout,
     children: [
-      { path: '', name: 'myDressingtaleView', component: MyDressingtableView, props: true },
+      {
+        path: '',
+        name: 'myDressingtaleView',
+        component: MyDressingtableView,
+        props: true,
+        meta: { title: '화장대 목록' },
+      },
+      {
+        path: 'cosmetic/:cosmeticId',
+        name: 'myCosmeticDeatilView',
+        component: MyCosmeticDetailView,
+        props: true,
+        meta: { title: '화장품 상세' },
+      },
     ],
   },
   {

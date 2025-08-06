@@ -6,7 +6,12 @@
     </div>
 
     <div class="cosmetic-grid">
-      <MyCosmeticCard v-for="cosmetic in filteredList" :key="cosmetic.id" :cosmetic="cosmetic" />
+      <MyCosmeticCard
+        v-for="cosmetic in filteredList"
+        :key="cosmetic.id"
+        :cosmetic="cosmetic"
+        :dressingtable="dressingtable"
+      />
     </div>
 
     <PlusIconButton @click="goToRegister" />
@@ -22,6 +27,9 @@ import PlusIconButton from '@/components/atoms/PlusIconButton.vue'
 const props = defineProps<{ id: string }>()
 const selectedCategory = ref('전체')
 const selectedSort = ref('등록순')
+const dressingtable = computed(() => ({
+  id: Number(props.id),
+}))
 
 const sortOptions = [
   { label: '등록순', value: 'latest' },
