@@ -22,6 +22,8 @@ import MyDressingtableList from '@/features/dressingtable/pages/MyDressingtableL
 import MyDressingtableLayout from '@/layouts/MyDressingtableLayout.vue'
 import MyDressingtableView from '@/features/dressingtable/pages/MyDressingtableView.vue'
 import MyCosmeticDetailView from '@/features/dressingtable/pages/MyCosmeticDetailView.vue'
+import MyProfileView from '@/features/member/pages/MyProfileView.vue'
+import EditProfileView from '@/features/member/pages/EditProfileView.vue'
 
 const routes = [
   {
@@ -35,6 +37,14 @@ const routes = [
     children: [
       { path: 'login', name: 'Login', component: LoginPage },
       { path: 'register', name: 'Register', component: RegisterPage },
+    ],
+  },
+  {
+    path: '/member',
+    component: AuthLayout,
+    children: [
+      { path: 'profile', name: 'myProfile', component: MyProfileView },
+      { path: 'profile/edit', name: 'editProfile', component: EditProfileView },
     ],
   },
   {

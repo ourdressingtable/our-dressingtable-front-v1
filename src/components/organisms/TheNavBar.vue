@@ -10,7 +10,7 @@
       <Icon name="Home" :size="24" />
     </RouterLink>
 
-    <RouterLink to="/" class="nav-item" active-class="active">
+    <RouterLink to="/member/profile" class="nav-item" active-class="active">
       <Icon name="UserRound" :size="24" />
     </RouterLink>
 

@@ -1,0 +1,61 @@
+@use '../variables' as *;
+.edit-profile-main {
+  width: 100%;
+  max-width: 480px;
+
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+
+  form {
+    .form-group {
+      margin-bottom: 16px;
+
+      label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+
+      .input-wrapper {
+        position: relative;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        background-color: #fafafa;
+      }
+    }
+
+    .button-wrapper {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+
+      button {
+        flex: 1;
+        padding: 12px 0;
+        font-size: 14px;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button[type='submit'] {
+        background-color: $button-color-primary;
+      }
+
+      .cancel {
+        background-color: #926e67;
+      }
+    }
+  }
+}
