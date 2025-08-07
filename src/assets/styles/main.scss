@@ -1,14 +1,10 @@
 @use 'reset';
 @use 'base';
-@use 'auth';
-@use './post/post';
-
-.main-layout {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 1rem;
-  min-height: 100dvh;
-  max-width: 480px;
-  margin: 0 auto;
-  background-color: white;
-}
+@use './components/index' as components;
+@use './auth/index' as auth;
+@use './chat/index' as chat;
+@use './dressing-table/index' as dressingTable;
+@use './member/index' as member;
+@use './my-cosmetic/index' as myCosmetic;
+@use './notification/index' as notification;
+@use './post/index' as post;
