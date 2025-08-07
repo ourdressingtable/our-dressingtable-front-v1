@@ -1,5 +1,5 @@
 import { reactive, type Ref } from 'vue'
-import type { CosmeticForm } from '@/type/CosmeticForm'
+import type { CosmeticForm } from '@/type/cosmetic'
 
 export function useFormValidation(form: Ref<CosmeticForm>) {
   const errors = reactive<Record<string, string>>({})

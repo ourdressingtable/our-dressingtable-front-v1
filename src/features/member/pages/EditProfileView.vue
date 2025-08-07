@@ -1,7 +1,5 @@
 <template>
   <div class="edit-profile-main">
-    <h1 class="title">내 정보 수정</h1>
-
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="name">이름</label>

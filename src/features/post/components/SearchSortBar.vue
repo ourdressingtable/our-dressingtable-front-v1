@@ -7,6 +7,7 @@
         :value="search"
         @input="$emit('update:search', ($event.target as HTMLInputElement).value)"
         placeholder="검색어를 입력해주세요"
+        class="search-input"
       />
       <div class="sort-display" @click="toggleDropdown">
         <span>{{ currentLabel }}</span>

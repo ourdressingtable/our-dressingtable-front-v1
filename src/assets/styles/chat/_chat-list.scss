@@ -1,78 +1,58 @@
-.chat-list-layout {
+.chat-list {
   display: flex;
   flex-direction: column;
-  padding: 1rem 1rem;
-  min-height: 100dvh;
-  max-width: 480px;
-  margin: 0 auto;
-  background-color: #fff;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
 
-  .chat-list-main {
-    flex: 1;
+.chat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem;
+  border-bottom: 1px solid #eee;
+
+  &:first-child {
+    padding-top: 0px;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .chat-left {
     display: flex;
-    flex-direction: column;
-    padding: 10px;
+    align-items: center;
+    gap: 8px;
 
-    .chat-list-wrapper {
-      border-bottom: 1px solid #eee;
-      // border: 1px solid #eee;
-      overflow: hidden;
+    .profile-icon {
+      width: 48px;
+      height: 48px;
+      background: #ddd;
+      border-radius: 50%;
+      margin-right: 12px;
     }
-    .chat-list {
+
+    .chat-content {
       display: flex;
       flex-direction: column;
-    }
 
-    .chat-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px;
-      border-bottom: 1px solid #eee;
-
-      &:first-child {
-        padding-top: 0px;
-      }
-      &:last-child {
-        border-bottom: none;
+      .chat-name {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 2px;
       }
 
-      .chat-left {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-
-        .profile-icon {
-          width: 48px;
-          height: 48px;
-          background: #ddd;
-          border-radius: 50%;
-          margin-right: 12px;
-        }
-
-        .chat-content {
-          display: flex;
-          flex-direction: column;
-
-          .chat-name {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 2px;
-          }
-
-          .chat-message {
-            font-size: 14px;
-            color: #444;
-          }
-        }
-      }
-
-      .chat-time {
-        font-size: 12px;
-        color: #999;
-        white-space: nowrap;
-        margin-left: 12px;
+      .chat-message {
+        font-size: 14px;
+        color: #444;
       }
     }
+  }
+
+  .chat-time {
+    font-size: 12px;
+    color: #999;
+    white-space: nowrap;
+    margin-left: 12px;
   }
 }

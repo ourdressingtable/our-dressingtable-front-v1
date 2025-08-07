@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 import Icon from '@/components/BaseIcon.vue'
 import PageHeader from '@/components/organisms/PageHeader.vue'
@@ -29,6 +29,17 @@ import { useConfirm } from '@/composables/useConfirm'
 import { useDropdown } from '@/composables/useDropdown'
 
 const confirm = useConfirm()
+// const route = useRoute()
+const emit = defineEmits<{
+  (e: 'setTitle', title: string): void
+}>()
+
+onMounted(async () => {
+  // const chatId = route.params.id as string
+
+  emit('setTitle', `STELLA님과 채팅`)
+})
+
 const dropdownRef = ref<HTMLElement | null>(null)
 const { showDropdown, toggleDropdown } = useDropdown(dropdownRef)
 

@@ -1,12 +1,7 @@
 <template>
-  <div class="chat-list-main">
-    <!-- <h1 class="chat-list-title">채팅</h1> -->
-    <div class="chat-list-wrapper">
-      <section class="chat-list">
-        <ChatItem v-for="(chat, index) in chats" :key="index" :chat="chat" />
-      </section>
-    </div>
-  </div>
+  <section class="chat-list">
+    <ChatItem v-for="(chat, index) in chats" :key="index" :chat="chat" />
+  </section>
 </template>
 
 <script setup lang="ts">

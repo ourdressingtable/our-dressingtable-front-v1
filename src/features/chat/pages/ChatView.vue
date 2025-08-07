@@ -1,29 +1,30 @@
 <template>
-  <div class="chat-main">
-    <div class="chat-date">2026년 12월 25일 금요일</div>
-    <div class="chat-body">
-      <section class="messages">
-        <MessageBubble v-for="(msg, i) in messages" :key="i" :message="msg" />
-      </section>
-    </div>
-    <ChatInputBar />
+  <div class="chat-date">2026년 12월 25일 금요일</div>
+  <div class="chat-body">
+    <section class="messages">
+      <MessageBubble v-for="(msg, i) in messages" :key="i" :message="msg" />
+    </section>
   </div>
+  <ChatInputBar />
 </template>
 
 <script setup lang="ts">
 import ChatInputBar from '@/features/chat/components/ChatInputBar.vue'
 import MessageBubble from '@/features/chat/components/MessageBubble.vue'
+import type { Message } from '@/type'
+import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const chatId = Number(route.params.id)
 
-interface Message {
-  id: number
-  text: string
-  time: string
-  isMine: boolean
-}
+const emit = defineEmits<{
+  (e: 'setTitle', title: string): void
+}>()
+
+onMounted(async () => {
+  emit('setTitle', `STELLA님과 채팅`)
+})
 
 const messageMap: Record<number, Message[]> = {
   1: [

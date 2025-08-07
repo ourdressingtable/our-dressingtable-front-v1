@@ -1,27 +1,33 @@
-.page-header {
+.header {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
   padding: 0rem 0rem 0.5rem 0rem;
-  // border-bottom: 1px solid #eee;
 
-  .page-title {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    font-size: 16px;
+  &--base h1 {
+    font-size: 1.3rem;
     font-weight: bold;
   }
 
-  .back-button {
-    font-size: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+  &--page {
+    .page-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .back-button {
+      font-size: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
   }
 
   .setting-wrapper {
@@ -44,6 +50,7 @@
       white-space: nowrap;
       width: max-content;
       min-width: 80px;
+
       button {
         display: block;
         padding: 8px 12px;

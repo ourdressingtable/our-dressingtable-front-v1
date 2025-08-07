@@ -1,5 +1,6 @@
 @use 'reset';
 @use 'base';
+@use './layout/index' as layout;
 @use './components/index' as components;
 @use './auth/index' as auth;
 @use './chat/index' as chat;

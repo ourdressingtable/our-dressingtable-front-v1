@@ -4,6 +4,4 @@
 @use './atoms/base-toggle';
 @use './atoms/image-uploader';
 @use './atoms/price-input';
-@use './organisms/base-header';
-@use './organisms/page-header';
-@use './organisms/nav';
+@use './atoms/base_input_with_icon';

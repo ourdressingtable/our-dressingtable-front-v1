@@ -5,15 +5,11 @@ import RegisterPage from '@/features/auth/pages/Register.vue'
 import NotFoundPage from '@/errors/NotFound.vue'
 import MainLayout from '@/layouts/MainLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
-import ChatLayout from '@/layouts/ChatLayout.vue'
 import ChatView from '@/features/chat/pages/ChatView.vue'
 import PostLayout from '@/layouts/PostLayout.vue'
 import PostDetail from '@/features/post/pages/PostDetailView.vue'
-import ChatListLayout from '@/layouts/ChatListLayout.vue'
 import ChatListView from '@/features/chat/pages/ChatListView.vue'
-import NotificationLayout from '@/layouts/NotificationLayout.vue'
 import NotificationView from '@/features/notification/pages/NotificationView.vue'
-import PostListLayout from '@/layouts/PostListLayout.vue'
 import PostListView from '@/features/post/pages/PostListView.vue'
 import MyCosmeticRegisterForm from '@/features/dressingtable/pages/MyCosmeticRegisterForm.vue'
 import MyCosmeticRegisterLayout from '@/layouts/MyCosmeticRegisterLayout.vue'
@@ -24,6 +20,8 @@ import MyDressingtableView from '@/features/dressingtable/pages/MyDressingtableV
 import MyCosmeticDetailView from '@/features/dressingtable/pages/MyCosmeticDetailView.vue'
 import MyProfileView from '@/features/member/pages/MyProfileView.vue'
 import EditProfileView from '@/features/member/pages/EditProfileView.vue'
+import BaseLayout from '@/layouts/BaseLayout.vue'
+import PageLayout from '@/layouts/PageLayout.vue'
 
 const routes = [
   {
@@ -41,16 +39,39 @@ const routes = [
   },
   {
     path: '/member',
-    component: AuthLayout,
+    component: BaseLayout,
     children: [
-      { path: 'profile', name: 'myProfile', component: MyProfileView },
-      { path: 'profile/edit', name: 'editProfile', component: EditProfileView },
+      {
+        path: 'profile',
+        name: 'myProfile',
+        component: MyProfileView,
+        meta: {
+          title: '회원 정보',
+          hasDropdown: true,
+          dropdownItems: [{ label: '회원 탈퇴', value: 'withdraw' }],
+        },
+      },
+    ],
+  },
+  {
+    path: '/member/profile',
+    component: BaseLayout,
+    children: [
+      {
+        path: '/edit',
+        name: 'editProfile',
+        component: EditProfileView,
+        meta: {
+          title: '회원 정보 수정',
+          hasDropdown: true,
+        },
+      },
     ],
   },
   {
     path: '/dressingtable',
     component: MyDressingtableListLayout,
-    children: [{ path: 'list', name: 'myDressingtaleList', component: MyDressingtableList }],
+    children: [{ path: '', name: 'myDressingtaleList', component: MyDressingtableList }],
   },
   {
     path: '/dressingtable/:id',
@@ -91,18 +112,53 @@ const routes = [
   // },
   {
     path: '/chat',
-    component: ChatListLayout,
-    children: [{ path: 'chatListView', name: 'ChatListView', component: ChatListView }],
+    component: BaseLayout,
+    children: [
+      {
+        path: '',
+        name: 'ChatListView',
+        component: ChatListView,
+        meta: {
+          title: '채팅',
+          hasDropdown: true,
+          dropdownItems: [{ label: '채팅 선택', value: 'select' }],
+        },
+      },
+    ],
   },
   {
     path: '/chat/:id',
-    component: ChatLayout,
-    children: [{ path: '', name: 'ChatView', component: ChatView }],
+    component: PageLayout,
+    children: [
+      {
+        path: '',
+        name: 'ChatView',
+        component: ChatView,
+        meta: {
+          hasDropdown: true,
+          dropdownItems: [
+            { label: '나가기', value: 'leave' },
+            { label: '신고', value: 'report', danger: true },
+          ],
+        },
+      },
+    ],
   },
   {
     path: '/post',
-    component: PostListLayout,
-    children: [{ path: 'postList', name: 'PostListView', component: PostListView }],
+    component: BaseLayout,
+    children: [
+      {
+        path: '',
+        name: 'PostListView',
+        component: PostListView,
+        meta: {
+          title: '커뮤니티',
+          hasDropdown: true,
+          dropdownItems: [{ label: '게시글 선택', value: 'selecte' }],
+        },
+      },
+    ],
   },
   {
     path: '/post/:id',
@@ -111,8 +167,19 @@ const routes = [
   },
   {
     path: '/notification',
-    component: NotificationLayout,
-    children: [{ path: 'notificationView', name: 'notificationView', component: NotificationView }],
+    component: BaseLayout,
+    children: [
+      {
+        path: '',
+        name: 'notificationView',
+        component: NotificationView,
+        meta: {
+          title: '알림',
+          hasDropdown: true,
+          dropdownItems: [{ label: '알림 선택', value: 'selecte' }],
+        },
+      },
+    ],
   },
   {
     path: '/:pathMatch(.*)*',

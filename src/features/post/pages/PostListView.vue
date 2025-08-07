@@ -1,23 +1,21 @@
 <template>
-  <div class="post-list-main">
-    <CategoryTabs
-      :categories="categories"
-      :selected="selectedCategory"
-      @update:selected="selectedCategory = $event"
-    />
-    <SearchSortBar
-      :search="searchQuery"
-      :sort="sortOption"
-      @update:search="searchQuery = $event"
-      @update:sort="sortOption = $event"
-    />
-    <section class="post-list">
-      <PostItem v-for="(post, index) in filteredPosts" :key="index" :post="post" />
-    </section>
-    <button class="add">
-      <Icon name="Plus" />
-    </button>
-  </div>
+  <CategoryTabs
+    :categories="categories"
+    :selected="selectedCategory"
+    @update:selected="selectedCategory = $event"
+  />
+  <SearchSortBar
+    :search="searchQuery"
+    :sort="sortOption"
+    @update:search="searchQuery = $event"
+    @update:sort="sortOption = $event"
+  />
+  <section class="post-list">
+    <PostItem v-for="(post, index) in filteredPosts" :key="index" :post="post" />
+  </section>
+  <button class="add-button">
+    <Icon name="Plus" />
+  </button>
 </template>
 
 <script setup lang="ts">

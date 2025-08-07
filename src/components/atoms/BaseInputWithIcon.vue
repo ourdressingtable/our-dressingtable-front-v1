@@ -1,8 +1,18 @@
 <template>
   <div class="input-wrapper">
-    <input :placeholder="placeholder" v-model="inputValue" @keyup.enter="$emit('submit')" />
-    <button @click="$emit('submit')">
-      <Icon :name="icon" />
+    <div class="input-box">
+      <input
+        class="base-input"
+        :placeholder="placeholder"
+        v-model="inputValue"
+        @keyup.enter="$emit('submit')"
+      />
+      <button class="upload-button" type="button">
+        <Icon name="Image" />
+      </button>
+    </div>
+    <button class="send-button" @click="$emit('submit')">
+      <Icon :name="icon" class="send-icon" />
     </button>
   </div>
 </template>
