@@ -1,3 +1,4 @@
 export * from './common'
 export * from './cosmetic'
 export * from './chat'
+export * from './dressingtable'

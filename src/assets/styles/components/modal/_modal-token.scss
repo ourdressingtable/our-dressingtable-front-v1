@@ -1,0 +1,19 @@
+:root {
+  --modal-overlay: rgba(0, 0, 0, 0.45);
+  --modal-bg: #fff;
+  --modal-radius: 12px;
+  --modal-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  --modal-padding: 16px;
+  --modal-max-w: 420px;
+  --modal-width: calc(100% - 32px);
+
+  --modal-header-gap: 8px;
+  --modal-footer-gap: 8px;
+
+  /* 버튼 / 탭 공통에서 쓸 수 있음 */
+  --modal-accent: #eba6a9; /* 기본 포인트 */
+  --modal-accent-2: #926e67;
+  --modal-muted: #eee;
+  --modal-text: #333;
+}
