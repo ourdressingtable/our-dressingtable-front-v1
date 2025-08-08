@@ -85,7 +85,7 @@
 
 <script setup lang="ts">
 import { useFinalExpirationDate } from '@/composables/useFinalExpirationDate'
-import type { CosmeticForm } from '@/type/CosmeticForm'
+import type { CosmeticForm } from '@/type/cosmetic'
 import { computed, ref } from 'vue'
 import { useFormValidation } from '@/composables/useFormValidation'
 import BaseDatePicker from '@/components/atoms/BaseDatePicker.vue'

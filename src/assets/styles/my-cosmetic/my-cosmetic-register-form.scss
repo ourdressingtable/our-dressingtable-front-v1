@@ -1,10 +1,10 @@
-@use '../components/baseDatePicker.scss';
-@use '../components/baseInput.scss';
-@use '../components/baseSelect.scss';
-@use '../components/baseToggle.scss';
-@use '../components/imageUploader.scss';
-@use '../components/priceInput.scss';
-@use './modal/cosmeticCategoryModal.scss';
+@use '../components/atoms/base-data-picker';
+@use '../components/atoms/base-input';
+@use '../components/atoms/base-select';
+@use '../components/atoms/base-toggle';
+@use '../components/atoms/image-uploader';
+@use '../components/atoms/price-input';
+@use './modal/cosmetic-category-modal';
 
 .mycosmetic-register-layout {
   display: flex;

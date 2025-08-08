@@ -3,7 +3,7 @@
     <button
       v-for="category in categories"
       :key="category"
-      :class="{ active: category === selected }"
+      :class="['category-button', { active: category === selected }]"
       @click="$emit('update:selected', category)"
     >
       {{ category }}

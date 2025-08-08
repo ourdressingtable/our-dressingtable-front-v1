@@ -1,16 +1,14 @@
 <template>
-  <div class="notification-list-main">
-    <section class="noticiation-list">
-      <NotificationItem
-        v-for="(item, index) in notifications"
-        :key="index"
-        :date="item.date"
-        :time="item.time"
-        :content="item.content"
-        :isNew="item.isNew"
-      />
-    </section>
-  </div>
+  <section class="noticiation-list">
+    <NotificationItem
+      v-for="(item, index) in notifications"
+      :key="index"
+      :date="item.date"
+      :time="item.time"
+      :content="item.content"
+      :isNew="item.isNew"
+    />
+  </section>
 </template>
 
 <script setup lang="ts">

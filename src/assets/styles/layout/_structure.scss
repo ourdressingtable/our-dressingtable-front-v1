@@ -1,0 +1,17 @@
+@use '../variables' as *;
+.base-layout {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: $background-color;
+}
+
+main.layout-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem;
+}

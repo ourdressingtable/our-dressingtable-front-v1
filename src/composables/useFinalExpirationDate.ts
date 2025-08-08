@@ -1,4 +1,4 @@
-import type { CosmeticForm } from '@/type/CosmeticForm'
+import type { CosmeticForm } from '@/type/cosmetic'
 import dayjs from 'dayjs'
 import minMax from 'dayjs/plugin/minMax'
 import { computed, type Ref } from 'vue'

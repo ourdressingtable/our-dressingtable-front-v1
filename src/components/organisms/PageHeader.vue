@@ -1,5 +1,5 @@
 <template>
-  <div class="page-header">
+  <div class="header header--page">
     <button class="back-button" @click="$router.back()">
       <Icon name="ChevronLeft" :size="24" />
     </button>

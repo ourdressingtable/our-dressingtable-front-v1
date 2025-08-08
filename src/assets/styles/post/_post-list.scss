@@ -1,51 +1,42 @@
-.post-list-layout {
+@use '../variables' as *;
+.base-layout {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 1rem;
-  min-height: 100dvh;
-  max-width: 480px;
-  margin: 0 auto;
-  background-color: #fff;
 
   .category-tabs {
     display: flex;
     gap: 2rem;
   }
-
-  button {
+  .category-button {
     background: none;
     border: none;
-    font-size: 14px;
-    padding: 0.5rem 0;
+    font-size: 1rem;
+    padding: 0 0 0.2rem 0;
     width: 20%;
+
+    &.active {
+      font-weight: bold;
+      // background-color: $color-primary;
+      // border-radius: 1rem;
+      border-bottom: 1px solid;
+    }
   }
 
-  button.active {
-    font-weight: bold;
-    border-bottom: 2px solid #000;
-  }
-  .post-list-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
   .search-filter {
     padding-top: 0.5rem;
     .search-wrapper {
       display: flex;
       align-items: center;
-      padding: 0.75rem 1rem;
-      border: 1px solid #ccc;
+      // margin: 0.6rem;
+      padding: 0.6rem 0.6rem;
+      border: 1px solid $border-color-primary;
       border-radius: 12px;
-      background-color: #fff;
+      background-color: $background-color;
 
-      input {
+      .search-input {
         flex: 1;
         border: none;
         outline: none;
-        font-size: 16px;
+        font-size: $font-size-base;
         margin-left: 0.5rem;
         background: transparent;
       }
@@ -63,7 +54,7 @@
           right: 0;
           margin-top: 8px;
           background: #fff;
-          border: 1px solid #ccc;
+          border: 1px solid $border-color-primary;
           border-radius: 8px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           padding: 0.5rem 0;
@@ -87,8 +78,9 @@
       }
     }
   }
+
   .post-item {
-    padding: 1rem 0;
+    padding: 1rem 0.4rem;
     border-bottom: 1px solid #eee;
     list-style: none;
 
@@ -109,10 +101,9 @@
         width: fit-content;
         padding: 2px 8px;
         font-size: 12px;
-        color: #333;
-        border: 1px solid #ccc;
+        color: $text-color-primary;
         border-radius: 4px;
-        background-color: #f9f9f9;
+        background-color: $background-color-second;
         white-space: nowrap; // 줄바꿈 방지
         box-sizing: border-box;
       }
@@ -170,7 +161,7 @@
     }
   }
 
-  .add {
+  .add-button {
     position: absolute;
     bottom: 80px;
     right: 24px;
