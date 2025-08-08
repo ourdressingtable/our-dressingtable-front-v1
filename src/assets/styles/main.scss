@@ -9,3 +9,4 @@
 @use './my-cosmetic/index' as myCosmetic;
 @use './notification/index' as notification;
 @use './post/index' as post;
+@use './components/modal/index' as *;
