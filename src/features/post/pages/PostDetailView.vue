@@ -1,8 +1,10 @@
 <template>
   <div class="post-main" v-if="post">
-    <section class="content">
+    <section class="post-tilte">
       <h2 class="title">{{ post.title }}</h2>
       <p class="meta">{{ post.author }} | {{ post.date }}</p>
+    </section>
+    <section class="post-content">
       <div class="image-box"></div>
       <p class="body-text">{{ post.content }}</p>
 

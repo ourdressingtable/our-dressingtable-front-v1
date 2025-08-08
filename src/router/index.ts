@@ -6,16 +6,12 @@ import NotFoundPage from '@/errors/NotFound.vue'
 import MainLayout from '@/layouts/MainLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
 import ChatView from '@/features/chat/pages/ChatView.vue'
-import PostLayout from '@/layouts/PostLayout.vue'
 import PostDetail from '@/features/post/pages/PostDetailView.vue'
 import ChatListView from '@/features/chat/pages/ChatListView.vue'
 import NotificationView from '@/features/notification/pages/NotificationView.vue'
 import PostListView from '@/features/post/pages/PostListView.vue'
 import MyCosmeticRegisterForm from '@/features/dressingtable/pages/MyCosmeticRegisterForm.vue'
-import MyCosmeticRegisterLayout from '@/layouts/MyCosmeticRegisterLayout.vue'
-import MyDressingtableListLayout from '@/layouts/MyDressingtableListLayout.vue'
 import MyDressingtableList from '@/features/dressingtable/pages/MyDressingtableList.vue'
-import MyDressingtableLayout from '@/layouts/MyDressingtableLayout.vue'
 import MyDressingtableView from '@/features/dressingtable/pages/MyDressingtableView.vue'
 import MyCosmeticDetailView from '@/features/dressingtable/pages/MyCosmeticDetailView.vue'
 import MyProfileView from '@/features/member/pages/MyProfileView.vue'
@@ -48,14 +44,14 @@ const routes = [
         meta: {
           title: '회원 정보',
           hasDropdown: true,
-          dropdownItems: [{ label: '회원 탈퇴', value: 'withdraw' }],
+          dropdownItems: [{ label: '회원 탈퇴', value: 'withdraw', danger: true }],
         },
       },
     ],
   },
   {
     path: '/member/profile',
-    component: BaseLayout,
+    component: PageLayout,
     children: [
       {
         path: '/edit',
@@ -70,19 +66,34 @@ const routes = [
   },
   {
     path: '/dressingtable',
-    component: MyDressingtableListLayout,
-    children: [{ path: '', name: 'myDressingtaleList', component: MyDressingtableList }],
+    component: BaseLayout,
+    children: [
+      {
+        path: '',
+        name: 'myDressingtaleList',
+        component: MyDressingtableList,
+        meta: {
+          title: '내 화장대',
+          hasDropdown: true,
+          dropdownItems: [{ label: '화장대 선택', value: 'select' }],
+        },
+      },
+    ],
   },
   {
     path: '/dressingtable/:id',
-    component: MyDressingtableLayout,
+    component: PageLayout,
     children: [
       {
         path: '',
         name: 'myDressingtaleView',
         component: MyDressingtableView,
         props: true,
-        meta: { title: '화장대 목록' },
+        meta: {
+          title: '화장대 목록',
+          hasDropdown: true,
+          dropdownItems: [{ label: '화장품 선택', value: 'select' }],
+        },
       },
       {
         path: 'cosmetic/:cosmeticId',
@@ -95,7 +106,7 @@ const routes = [
   },
   {
     path: '/dressingtable/:id/add',
-    component: MyCosmeticRegisterLayout,
+    component: PageLayout,
     children: [
       {
         path: '',
@@ -138,7 +149,7 @@ const routes = [
           hasDropdown: true,
           dropdownItems: [
             { label: '나가기', value: 'leave' },
-            { label: '신고', value: 'report', danger: true },
+            { label: '신고하기', value: 'report', danger: true },
           ],
         },
       },
@@ -155,15 +166,32 @@ const routes = [
         meta: {
           title: '커뮤니티',
           hasDropdown: true,
-          dropdownItems: [{ label: '게시글 선택', value: 'selecte' }],
+          dropdownItems: [
+            {
+              label: '게시글 선택',
+              value: 'select',
+            },
+          ],
         },
       },
     ],
   },
   {
     path: '/post/:id',
-    component: PostLayout,
-    children: [{ path: '', name: 'PostDetail', component: PostDetail, props: true }],
+    component: PageLayout,
+    children: [
+      {
+        path: '',
+        name: 'PostDetail',
+        component: PostDetail,
+        props: true,
+        meta: {
+          title: '커뮤니티',
+          hasDropdown: true,
+          dropdownItems: [{ label: '신고하기', value: 'report', danger: true }],
+        },
+      },
+    ],
   },
   {
     path: '/notification',

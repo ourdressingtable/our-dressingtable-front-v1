@@ -49,7 +49,7 @@ watchEffect(() => {
       <template #menu v-if="hasDropdown">
         <div ref="dropdownRef" class="setting-wrapper">
           <Icon name="MoreVertical" :size="24" @click="toggleDropdown" />
-          <div v-if="showDropdown" class="dropdown-menu">
+          <div v-if="showDropdown" class="header-dropdown-menu">
             <button
               v-for="item in dropdownItems"
               :key="item.value"

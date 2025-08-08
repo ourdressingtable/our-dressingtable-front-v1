@@ -1,62 +1,39 @@
-.dressingtable-list-layout {
-  position: relative;
+.dressingtable-item {
   display: flex;
-  flex-direction: column;
-  padding: 1rem 1rem;
-  min-height: 100dvh;
-  max-width: 480px;
-  margin: 0 auto;
-  background-color: #fff;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 12px;
 
-  .dressingtable-list-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-
-    .dressingtable-list-wrapper {
-      // border-bottom: 1px solid #eee;
-      // border: 1px solid #eee;
-      overflow: hidden;
-    }
-  }
-  .dressingtable-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    cursor: pointer;
-    margin-bottom: 12px;
-
-    .dressingtable-image {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #f8eaea;
-    }
-
-    .dressingtable-title {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    &:hover {
-      border-color: #f4d4d4;
-    }
+  .dressingtable-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #f8eaea;
   }
 
-  .add-button {
-    margin-top: auto;
-    padding: 10px 16px;
-    background-color: #eba6a9;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
+  .dressingtable-title {
     font-size: 14px;
-    align-self: flex-end;
-    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  &:hover {
+    border-color: #f4d4d4;
   }
 }
+
+// .add-button {
+//   margin-top: auto;
+//   padding: 10px 16px;
+//   background-color: #eba6a9;
+//   color: #fff;
+//   border: none;
+//   border-radius: 8px;
+//   font-weight: bold;
+//   font-size: 14px;
+//   align-self: flex-end;
+//   margin-bottom: 20px;
+// }

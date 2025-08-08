@@ -13,17 +13,19 @@
   <section class="post-list">
     <PostItem v-for="(post, index) in filteredPosts" :key="index" :post="post" />
   </section>
-  <button class="add-button">
+  <!-- <button class="add-button">
     <Icon name="Plus" />
-  </button>
+  </button> -->
+  <PlusIconButton @click="goToRegister" />
 </template>
 
 <script setup lang="ts">
 import PostItem from '@/features/post/components/PostItem.vue'
 import CategoryTabs from '../components/CategoryTabs.vue'
-import Icon from '@/components/BaseIcon.vue'
 import SearchSortBar from '../components/SearchSortBar.vue'
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import PlusIconButton from '@/components/atoms/PlusIconButton.vue'
 
 const categories = ['자유', '질문', '골라줘', '후기', '정보']
 const selectedCategory = ref('')
@@ -91,4 +93,9 @@ const filteredPosts = computed(() => {
       }
     })
 })
+const router = useRouter()
+
+const goToRegister = () => {
+  router.push(`/post`)
+}
 </script>

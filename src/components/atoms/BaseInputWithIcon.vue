@@ -1,5 +1,5 @@
 <template>
-  <div class="input-wrapper">
+  <div class="base-input-wrapper">
     <div class="input-box">
       <input
         class="base-input"
