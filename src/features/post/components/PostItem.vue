@@ -2,8 +2,8 @@
   <li class="post-item" @click="goToDetail">
     <div class="post-content">
       <div class="post-left">
-        <div class="category">{{ post.category }}</div>
-        <div class="title">{{ post.title }}</div>
+        <div class="post-category">{{ post.category }}</div>
+        <div class="post-title">{{ post.title }}</div>
         <div class="bottom-line">
           <div class="author-date">
             <span>{{ post.author }}</span>

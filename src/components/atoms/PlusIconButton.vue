@@ -1,5 +1,5 @@
 <template>
-  <button class="add">
+  <button class="add-button">
     <Icon name="Plus" />
   </button>
 </template>

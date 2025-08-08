@@ -1,7 +1,7 @@
 <template>
   <div class="my-profile-main">
     <section class="profile-header">
-      <img :src="user.imageUrl || defaultImage" alt="프로필 이미지" class="profile-image" />
+      <img :src="user.imageUrl || DEFAULT_PROFILE_IMAGE" alt="" class="profile-image" />
       <div class="profile-info">
         <h2>{{ user.name }}</h2>
         <p class="nickname">@{{ user.nickname }}</p>
@@ -42,9 +42,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
-
+import { DEFAULT_PROFILE_IMAGE } from '@/constants/path'
 const router = useRouter()
-const defaultImage = '/images/default-profile.png'
 
 const user = ref({
   name: 'STELLA',
