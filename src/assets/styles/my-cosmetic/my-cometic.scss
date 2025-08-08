@@ -1,0 +1,268 @@
+@use '../variables' as *;
+// .cosmetic-detail-layout {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100dvh;
+//   max-width: 480px;
+//   margin: 0 auto;
+//   background: #fff;
+//   position: relative;
+// }
+.detail-main {
+  padding: 12px 16px 92px;
+}
+
+.hero {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 8px 0 12px;
+  justify-content: center;
+  display: flex; // ✅ flex 컨테이너로 변경
+  justify-content: center; // 가로 가운데 정렬
+  align-items: center;
+  img,
+  .placeholder {
+    width: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background: #f5e4e3;
+    border-radius: 12px;
+  }
+  .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b89;
+  }
+  .status-badge {
+    position: absolute;
+    top: 8px;
+    left: calc(50% - 23%); // 이미지 너비(50%) 기준 왼쪽 시작점
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    color: #fff;
+    background: #bbb;
+
+    &.ok {
+      background: #7fb77e;
+    }
+    &.soon {
+      background: #e2a43b;
+    }
+    &.expired {
+      background: #e06a6a;
+    }
+    &.neutral {
+      background: #bbb;
+    }
+  }
+}
+
+.section {
+  padding: 12px 2px;
+}
+.section-title {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.brand {
+  font-size: 16px;
+  font-weight: 700;
+}
+.name {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #444;
+}
+.chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.chip {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: $background-color-second;
+  color: $text-color-primary;
+  &.outline {
+    background: #fff;
+    border: 1px solid #eee;
+    color: #666;
+  }
+}
+
+.kv {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    span {
+      color: #777;
+      font-size: 13px;
+    }
+    strong {
+      font-weight: 600;
+    }
+    em {
+      margin-left: 8px;
+      font-size: 12px;
+      color: #aaa;
+      &.danger {
+        color: #e06a6a;
+      }
+      &.warn {
+        color: #e2a43b;
+      }
+    }
+  }
+}
+
+.note {
+  white-space: pre-wrap;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.section.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .left {
+    display: flex;
+    flex-direction: column;
+  }
+  .sub {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #999;
+  }
+}
+
+/* 스위치 */
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  input {
+    display: none;
+  }
+  span {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: #e6e6e6;
+    transition: 0.2s;
+  }
+  span::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    top: 2px;
+    left: 2px;
+    transition: 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  input:checked + span {
+    background: #e1b5ae;
+  }
+  input:checked + span::after {
+    transform: translateX(20px);
+  }
+}
+
+/* 하단 액션 */
+.bottom-actions {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 10px 16px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  border-top: 1px solid #f1f1f1;
+  button {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .outline {
+    background: #fff;
+    border: 1px solid #eee;
+  }
+  .danger {
+    background: #926e67;
+    color: #fff;
+  }
+}
+
+/* 더보기 메뉴 */
+.more {
+  position: relative;
+  cursor: pointer;
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 28px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    list-style: none;
+    padding: 6px 0;
+    z-index: 10;
+    li {
+      padding: 8px 12px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .danger {
+      color: #c34d4d;
+    }
+  }
+}
+
+/* 스켈레톤 */
+.skeleton {
+  border-radius: 12px;
+  background: linear-gradient(90deg, #f2f2f2, #f7f7f7, #f2f2f2);
+  background-size: 200% 100%;
+  animation: shine 1.2s infinite;
+  &.hero {
+    height: 280px;
+    margin: 8px 0 12px;
+  }
+  &.row {
+    height: 20px;
+    margin: 8px 0;
+  }
+  &.block {
+    height: 120px;
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
