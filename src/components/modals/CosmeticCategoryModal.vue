@@ -1,57 +1,65 @@
 <template>
-  <div v-if="show" class="modal-overlay">
-    <div class="modal-content">
-      <header class="modal-header">
+  <div v-if="show" class="o-modal-overlay" @click.self="close">
+    <div class="c-modal c-modal--picker">
+      <header class="c-modal__header">
         <h2>카테고리 선택</h2>
-        <button class="close-btn" @click="close">닫기</button>
+        <button class="close-btn" @click="close">X</button>
       </header>
 
-      <div class="tabs">
-        <button
-          v-for="(item, index) in mainCategories"
-          :key="item.value"
-          @click="selectMain(index)"
-          :class="{ active: selectedMainIndex === index }"
-        >
-          {{ item.label }}
-        </button>
-      </div>
-      <div class="category-list">
-        <div class="column">
-          <div class="label">중분류</div>
+      <section class="c-modal__body">
+        <div class="c-modal-tabs">
           <button
-            v-for="(item, index) in subCategories"
+            v-for="(item, index) in mainCategories"
             :key="item.value"
-            @click="selectSub(index)"
-            :class="{ selected: selectedSubIndex === index }"
+            class="c-modal-tabs__btn"
+            :class="{ 'is-active': selectedMainIndex === index }"
+            @click="selectMain(index)"
           >
             {{ item.label }}
           </button>
         </div>
-        <div class="column">
-          <div class="label">소분류</div>
-          <button v-for="item in leafCategories" :key="item.value" @click="selectLeaf(item)">
-            {{ item.label }}
-          </button>
+
+        <div class="c-category-list">
+          <div class="c-category-list__col">
+            <div class="c-category-list__label">중분류</div>
+            <button
+              v-for="(item, index) in subCategories"
+              :key="item.value"
+              class="c-category-list__btn"
+              :class="{ 'is-selected': selectedSubIndex === index }"
+              @click="selectSub(index)"
+            >
+              {{ item.label }}
+            </button>
+          </div>
+
+          <div class="c-category-list__col">
+            <div class="c-category-list__label">소분류</div>
+            <button
+              v-for="item in leafCategories"
+              :key="item.value"
+              class="c-category-list__btn"
+              @click="selectLeaf(item)"
+            >
+              {{ item.label }}
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { CategoryNode } from '@/type'
 import { computed, ref } from 'vue'
 
-interface CategoryNode {
-  label: string
-  value: string
-  children?: CategoryNode[]
-}
 const props = defineProps<{
   modelValue: string
   show: boolean
   categoryTree: CategoryNode[]
 }>()
+
 const emit = defineEmits(['update:modelValue', 'update:show', 'select:labelAndValue'])
 
 const selectedMainIndex = ref(0)
@@ -81,8 +89,8 @@ function selectLeaf(item: CategoryNode) {
   const main = mainCategories[selectedMainIndex.value]
   const sub = subCategories.value[selectedSubIndex.value!]
   const leaf = item
-  const fullLabel = `${main.label} > ${sub.label} >${leaf.label}`
-  const fullValue = `${main.value} > ${sub.value} >${leaf.value}`
+  const fullLabel = `${main.label} > ${sub.label} > ${leaf.label}`
+  const fullValue = `${main.value} > ${sub.value} > ${leaf.value}`
 
   selectedLabel.value = fullLabel
   emit('update:modelValue', fullValue)
@@ -93,4 +101,17 @@ function selectLeaf(item: CategoryNode) {
 function close() {
   emit('update:show', false)
 }
+
+// function apply() {
+//   // 필요 시 적용 버튼 동작 (선택 강제 확인 등)
+//   emit('update:show', false)
+// }
 </script>
+
+<style lang="scss" scoped>
+/* 이 모달만 살짝 커스터마이즈하고 싶으면 여기서 변수로 제어 */
+.c-modal {
+  /* 예: 좀 더 넓게 */
+  --modal-max-w: 440px;
+}
+</style>
