@@ -96,6 +96,6 @@ const filteredPosts = computed(() => {
 const router = useRouter()
 
 const goToRegister = () => {
-  router.push(`/post`)
+  router.push(`/post/register`)
 }
 </script>
