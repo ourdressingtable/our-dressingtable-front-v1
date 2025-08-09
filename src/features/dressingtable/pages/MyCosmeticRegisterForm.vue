@@ -59,6 +59,7 @@
     <PriceInput v-model="form.price" label="구매가격" placeholder="" />
     <p v-if="errors.price" class="input-error">{{ errors.price }}</p>
     <BaseInput v-model="form.shop" label="구매처" placeholder="구매처를 입력하세요" />
+    <BaseInput v-model="form.memo" label="메모" />
 
     <div class="alarm-section">
       <div class="alarm-label">알림 설정</div>
@@ -108,6 +109,7 @@ const form = ref<CosmeticForm>({
   usagePeriodAfterOpen: '',
   price: null,
   shop: '',
+  memo: '',
   alarmEnabled: false,
   alarmDate: '30',
   customUsageDate: '',

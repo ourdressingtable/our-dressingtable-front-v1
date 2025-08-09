@@ -18,6 +18,7 @@ import MyProfileView from '@/features/member/pages/MyProfileView.vue'
 import EditProfileView from '@/features/member/pages/EditProfileView.vue'
 import BaseLayout from '@/layouts/BaseLayout.vue'
 import PageLayout from '@/layouts/PageLayout.vue'
+import PostRegisterView from '@/features/post/pages/PostRegisterView.vue'
 
 const routes = [
   {
@@ -189,6 +190,21 @@ const routes = [
           title: '커뮤니티',
           hasDropdown: true,
           dropdownItems: [{ label: '신고하기', value: 'report', danger: true }],
+        },
+      },
+    ],
+  },
+  {
+    path: '/post/register',
+    component: PageLayout,
+    children: [
+      {
+        path: '',
+        name: 'PostRegisterView',
+        component: PostRegisterView,
+        meta: {
+          title: '게시글 작성',
+          hasDropdown: false,
         },
       },
     ],

@@ -9,6 +9,7 @@ export interface CosmeticForm {
   usagePeriodAfterOpen: string
   price: number | null
   shop: string
+  memo: string
   alarmEnabled: boolean
   alarmDate: string
   customUsageDate: string
