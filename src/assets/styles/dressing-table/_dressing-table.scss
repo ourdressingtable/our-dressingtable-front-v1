@@ -1,93 +1,170 @@
-// .dressingtable-layout {
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   padding: 1rem 1rem;
-//   min-height: 100dvh;
-//   max-width: 480px;
-//   margin: 0 auto;
-//   background-color: #fff;
-
 .dressingtable-main {
-  // padding-top: 16px;
+  .cosmetic-filters {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap; // 여러 줄 허용하려면 유지, 한 줄만이면 지워도 됨
+    margin-bottom: 12px;
+  }
 
+  .base-select.is-cosmetic .dropdown-menu {
+    position: absolute;
+    left: 0; /* 필요 시 right:0 로 정렬 변경 */
+    top: calc(100% + 4px);
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+
+    /* ✅ 내용 길이에 맞춰 넓어지되 최소는 트리거 만큼 */
+    width: max-content;
+    min-width: 100%;
+    max-width: 80vw; /* 너무 길어지지 않도록 제한 */
+    box-sizing: border-box;
+  }
+
+  .base-select.is-cosmetic .dropdown-menu li {
+    display: block;
+    padding: 12px 12px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+
+    /* ✅ 한 줄 고정 + 넘치면 말줄임 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+
+    &:hover {
+      background-color: #fff0f1;
+    }
+    &.selected {
+      background-color: #eba6a9;
+      color: #fff;
+    }
+  }
+
+  .base-select.is-cosmetic .dropdown-trigger {
+    height: 36px;
+    min-height: 36px;
+    padding: 0 36px 0 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 999px;
+    background: #fafafa;
+    border: 1px solid #eee;
+
+    .dropdown-label {
+      display: none;
+    }
+    .dropdown-value {
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .dropdown-arrow {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+
+  /* 2열 그리드 */
   .cosmetic-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    padding: 0 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
-}
 
-.my-cosmetic-card {
-  width: 100%;
-  aspect-ratio: 7 / 8;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border: 1px solid #f9cdd1;
-
-  .my-cosmetic-card__image {
+  /* 카드 */
+  .my-cosmetic-card .thumb {
     position: relative;
-    flex: 1;
-    background-color: #fbe4e6;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fde8ea;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border: 1px solid #ebebeb;
 
-    img {
+    img,
+    .placeholder {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+    }
+    .placeholder {
+      // background: #fde8ea;
+      background: #fbfbfb;
     }
 
-    .brand-label {
+    .brand-badge {
       position: absolute;
-      top: 8px;
-      left: 8px;
-      background-color: #fff6f7;
-      color: #5a3a3a;
+      top: 10px;
+      left: 10px;
+      padding: 4px 10px;
+      font-weight: 700;
       font-size: 12px;
-      padding: 4px 8px;
+      color: #444;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: 999px;
-      font-weight: 500;
+      max-width: 75%;
       white-space: nowrap;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .gradient {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .title {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 14px; /* ↑ 살짝 키움 */
+      line-height: 1.25;
+      // color: #fff;
+      color: #444;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* 2줄까지 */
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+
+      background: #fde8ea;
+      backdrop-filter: blur(2px);
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     }
   }
 
-  .name {
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
-    color: #5a3a3a;
+  /* 플로팅 추가 버튼 */
+  .fab {
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
   }
-}
-
-// .add {
-//   position: absolute;
-//   bottom: 80px;
-//   right: 24px;
-//   width: 48px;
-//   height: 48px;
-//   border-radius: 50%;
-//   background-color: #f2b5ba;
-//   color: white;
-//   align-items: center;
-//   justify-content: center;
-//   display: flex;
-//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-//   font-size: 24px;
-//   border: none;
-//   z-index: 10;
-
-//   svg {
-//     stroke-width: 4px;
-//   }
-// }
-// }
-@media (min-width: 768px) {
-  .cosmetic-grid {
-    grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 768px) {
+    .cosmetic-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }

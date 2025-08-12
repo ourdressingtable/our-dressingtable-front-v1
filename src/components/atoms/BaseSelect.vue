@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="dropdown-wrapper" ref="wrapper">
     <div
       class="dropdown-trigger"
@@ -56,5 +56,91 @@ function selectOption(option: { label: string; value: string }) {
   showOptions.value = false
 }
 </script>
+ -->
+<template>
+  <div class="dropdown-wrapper base-select" :class="variantClass" ref="wrapper">
+    <div
+      class="dropdown-trigger"
+      :class="{ open: showOptions, filled: !!selectedOption }"
+      role="button"
+      tabindex="0"
+      @click="toggleDropdown"
+      @keydown.enter.prevent="toggleDropdown"
+      @keydown.space.prevent="toggleDropdown"
+      @keydown.esc.stop.prevent="close"
+      aria-haspopup="listbox"
+      :aria-expanded="showOptions"
+    >
+      <label
+        v-if="label"
+        class="dropdown-label"
+        :class="{ floated: showOptions || selectedOption }"
+      >
+        {{ label }}
+      </label>
 
-<style scoped lang="scss"></style>
+      <span class="dropdown-value">
+        {{ selectedLabel || placeholder }}
+      </span>
+
+      <Icon name="ChevronDown" class="dropdown-arrow" />
+    </div>
+
+    <ul v-if="showOptions" class="dropdown-menu" role="listbox">
+      <li
+        v-for="option in options"
+        :key="option.value"
+        role="option"
+        :aria-selected="option.value === modelValue"
+        :class="{ selected: option.value === modelValue }"
+        @click="selectOption(option)"
+      >
+        {{ option.label }}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import { onClickOutside } from '@vueuse/core' // ✅ 여기에서 가져와야 함!
+import Icon from '@/components/BaseIcon.vue'
+
+type Option = { label: string; value: string }
+
+const props = defineProps<{
+  modelValue: string
+  options: Option[]
+  label?: string
+  placeholder?: string
+  variant?: 'form' | 'filter' | 'cosmetic'
+}>()
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void
+}>()
+
+const showOptions = ref(false)
+const wrapper = ref<HTMLElement | null>(null)
+
+const selectedOption = computed(() => props.options.find((opt) => opt.value === props.modelValue))
+const selectedLabel = computed(() => selectedOption.value?.label ?? '')
+
+const variantClass = computed(() => `is-${props.variant ?? 'form'}`)
+
+function toggleDropdown() {
+  showOptions.value = !showOptions.value
+}
+function close() {
+  showOptions.value = false
+}
+function selectOption(option: Option) {
+  emit('update:modelValue', option.value)
+  close()
+}
+
+// 밖을 클릭하면 닫기
+onClickOutside(wrapper, () => {
+  if (showOptions.value) close()
+})
+</script>

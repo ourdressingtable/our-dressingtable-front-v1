@@ -1,81 +1,75 @@
-.dropdown-wrapper {
+.base-select {
   position: relative;
-  margin-bottom: 12px;
-}
 
-.dropdown-trigger {
-  position: relative;
-  padding: 20px 12px 4px;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  background-color: #fff;
-  cursor: pointer;
-  transition: border-color 0.2s;
-  margin-bottom: 8px;
-  min-height: 48px;
-
-  &.open {
-    border-color: #eba6a9;
-  }
-
-  .dropdown-value {
-    display: block;
-    font-size: 14px;
-    color: #333;
-    // padding: 5px 0px 0px;
-    line-height: 1.5;
-  }
-
-  .dropdown-arrow {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .dropdown-label {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    font-size: 13px;
-    color: #aaa;
-    transform: translateY(-50%);
-    transition: 0.2s;
-
-    &.floated {
-      top: 8px;
-      font-size: 11px;
-      color: #eba6a9;
-      transform: none;
-    }
-  }
-}
-
-.dropdown-menu {
-  position: absolute;
-  z-index: 10;
-  background-color: white;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  width: 100%;
-  margin-top: 4px;
-  max-height: 200px;
-  overflow-y: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-
-  li {
-    padding: 12px;
-    font-size: 14px;
-    color: #333;
+  .dropdown-trigger {
+    position: relative;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background-color: #fff;
     cursor: pointer;
+    transition: border-color 0.2s;
+    min-height: 48px;
 
-    &:hover {
-      background-color: #fff0f1;
+    &.open {
+      border-color: #eba6a9;
     }
 
-    &.selected {
-      background-color: #eba6a9;
-      color: white;
+    .dropdown-value {
+      display: block;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .dropdown-arrow {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .dropdown-label {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      font-size: 13px;
+      color: #aaa;
+      transform: translateY(-50%);
+      transition: 0.2s;
+
+      &.floated {
+        top: 8px;
+        font-size: 11px;
+        color: #eba6a9;
+        transform: none;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    z-index: 10;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    width: 100%;
+    margin-top: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    li {
+      padding: 12px;
+      font-size: 14px;
+      color: #333;
+      cursor: pointer;
+      &:hover {
+        background: #fff0f1;
+      }
+      &.selected {
+        background: #eba6a9;
+        color: #fff;
+      }
     }
   }
 }

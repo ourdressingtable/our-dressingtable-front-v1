@@ -23,7 +23,16 @@ main {
   color: #e74c3c;
   margin-bottom: 8px;
 }
+.base-select.is-form {
+  display: block;
+  width: 100%;
 
+  .dropdown-trigger {
+    padding: 20px 12px 4px; // 폼에서만 패딩
+    display: block; // ✅ 세로 배치 유지
+    margin-bottom: 8px;
+  }
+}
 .category-input-wrapper {
   position: relative;
   border: 1px solid #eee;

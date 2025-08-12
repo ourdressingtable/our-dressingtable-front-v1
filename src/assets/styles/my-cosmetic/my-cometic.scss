@@ -1,13 +1,13 @@
 @use '../variables' as *;
-// .cosmetic-detail-layout {
-//   display: flex;
-//   flex-direction: column;
-//   min-height: 100dvh;
-//   max-width: 480px;
-//   margin: 0 auto;
-//   background: #fff;
-//   position: relative;
-// }
+.cosmetic-detail-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  max-width: 480px;
+  // margin: 0 auto;
+  background: #fff;
+  position: relative;
+}
 .detail-main {
   padding: 12px 16px 92px;
 }

@@ -35,6 +35,7 @@
     <p v-if="errors.openDate" class="input-error">{{ errors.openDate }}</p>
 
     <BaseSelect
+      variant="form"
       v-model="form.usagePeriodAfterOpen"
       label="오픈 후 사용 기한"
       :options="usagePeriodOptions"
