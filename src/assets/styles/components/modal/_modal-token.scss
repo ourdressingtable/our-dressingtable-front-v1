@@ -1,3 +1,4 @@
+@use '../../variables' as *;
 :root {
   --modal-overlay: rgba(17, 17, 17, 0.5);
   --modal-bg: #fff;
@@ -12,8 +13,8 @@
   --modal-header-gap: 8px;
   --modal-footer-gap: 10px;
 
-  --modal-accent: #eba6a9; /* Primary */
-  --modal-accent-2: #926e67; /* Secondary */
+  --modal-accent: $button-color-primary;
+  --modal-accent-2: $button-color-second;
   --modal-muted: #f2f2f2;
   --modal-text: #2a2a2a;
   --modal-text-muted: #808080;

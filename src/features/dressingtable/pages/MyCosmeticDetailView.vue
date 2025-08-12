@@ -3,9 +3,11 @@
     <main class="detail-main" v-if="loaded && data">
       <!-- 이미지 -->
       <section class="hero">
-        <img v-if="data.imageUrl" :src="data.imageUrl" alt="" />
-        <div v-else class="placeholder">이미지 없음</div>
-        <span class="status-badge" :class="statusClass">{{ statusText }}</span>
+        <div class="hero__box">
+          <img v-if="data.imageUrl" :src="data.imageUrl" alt="" />
+          <div v-else class="placeholder">이미지 없음</div>
+          <span class="status-badge" :class="statusClass">{{ statusText }}</span>
+        </div>
       </section>
 
       <!-- 기본 정보 -->
@@ -79,7 +81,7 @@
           <p class="sub">사용기한 임박/만료 알림</p>
         </div>
         <label class="switch">
-          <input type="checkbox" v-model="alarmEnabled" @change="saveAlarm" />
+          <input type="checkbox" v-model="alarmEnabled" disabled />
           <span />
         </label>
       </section>
@@ -205,11 +207,6 @@ const statusText = computed(() => {
       return '정보없음'
   }
 })
-
-function saveAlarm() {
-  // TODO: API PATCH 호출
-  // await api.patch(`/api/cosmetics/${id}/alarm`, { enabled: alarmEnabled.value })
-}
 
 function edit() {
   router.push(`/mycosmetic/${id}/edit`)

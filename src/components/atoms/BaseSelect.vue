@@ -103,7 +103,7 @@ function selectOption(option: { label: string; value: string }) {
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { onClickOutside } from '@vueuse/core' // ✅ 여기에서 가져와야 함!
+import { onClickOutside } from '@vueuse/core'
 import Icon from '@/components/BaseIcon.vue'
 
 type Option = { label: string; value: string }

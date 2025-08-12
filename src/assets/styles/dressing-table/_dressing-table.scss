@@ -5,6 +5,40 @@
     align-items: center;
     flex-wrap: wrap; // 여러 줄 허용하려면 유지, 한 줄만이면 지워도 됨
     margin-bottom: 12px;
+
+    .segmented {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .segmented-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid #eee;
+      background: #fafafa;
+      font-weight: 600;
+      font-size: 13px;
+      color: #555;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+    }
+    .segmented-btn.active {
+      background: #ffe6e8;
+      border-color: #eba6a9;
+      color: #d86b77;
+    }
+
+    /* 2행: 드롭다운들 가로 배치 */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+
+      > .base-select {
+        margin-bottom: 0;
+      } /* pill margin 제거 */
+    }
   }
 
   .base-select.is-cosmetic .dropdown-menu {
@@ -17,7 +51,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     z-index: 10;
 
-    /* ✅ 내용 길이에 맞춰 넓어지되 최소는 트리거 만큼 */
+    /* 내용 길이에 맞춰 넓어지되 최소는 트리거 만큼 */
     width: max-content;
     min-width: 100%;
     max-width: 80vw; /* 너무 길어지지 않도록 제한 */
@@ -31,7 +65,7 @@
     color: #333;
     cursor: pointer;
 
-    /* ✅ 한 줄 고정 + 넘치면 말줄임 */
+    /* 한 줄 고정 + 넘치면 말줄임 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
