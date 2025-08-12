@@ -1,18 +1,51 @@
-/* === 모달1: 아주 심플한 폼 === */
+// /* === 모달1: 아주 심플한 폼 === */
+// .c-modal--simple {
+//   --modal-max-w: 300px;
+
+//   .c-modal__body .form-group {
+//     margin-bottom: 16px;
+//   }
+// }
+
+// /* === 모달2: 헤더 + 탭 + 2컬럼 카테고리 === */
+// .c-modal--picker {
+//   --modal-overlay: rgba(0, 0, 0, 0.5); /* 모달2는 더 진하게 */
+//   --modal-max-w: 400px;
+//   --modal-width: 90%;
+//   --modal-padding: 24px; /* 좀 더 넉넉하게 */
+
+//   .c-modal__header .close-btn {
+//     background: none;
+//     border: none;
+//     font-size: 1.5rem;
+//     cursor: pointer;
+//   }
+// }
+
+/* 바텀시트 스타일이 필요하면 이런 것도 가능
+.c-modal--sheet {
+  align-self: end; // overlay가 grid라서 가능
+  width: 100%;
+  max-width: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+*/
 .c-modal--simple {
-  --modal-max-w: 300px;
+  /* 저장 모달(작고 단정) */
+  --modal-max-w: 360px;
 
   .c-modal__body .form-group {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 }
 
-/* === 모달2: 헤더 + 탭 + 2컬럼 카테고리 === */
 .c-modal--picker {
-  --modal-overlay: rgba(0, 0, 0, 0.5); /* 모달2는 더 진하게 */
-  --modal-max-w: 400px;
+  /* 탭/카테고리 모달(조금 더 넉넉) */
+  --modal-overlay: rgba(0, 0, 0, 0.5);
+  --modal-max-w: 420px;
   --modal-width: 90%;
-  --modal-padding: 24px; /* 좀 더 넉넉하게 */
+  --modal-padding: 24px;
 
   .c-modal__header .close-btn {
     background: none;
@@ -22,9 +55,9 @@
   }
 }
 
-/* 바텀시트 스타일이 필요하면 이런 것도 가능
+/* 필요하면 바텀시트 스타일도 쉽게 확장 가능
 .c-modal--sheet {
-  align-self: end; // overlay가 grid라서 가능
+  align-self: end;
   width: 100%;
   max-width: none;
   border-bottom-left-radius: 0;
