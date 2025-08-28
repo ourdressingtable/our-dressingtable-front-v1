@@ -112,6 +112,7 @@ type UsageAfterOpen = '1M' | '3M' | '6M' | '12M' | 'custom' | ''
 
 interface CosmeticDetail {
   id: number
+  dressingtableId: number
   brand: string
   productName: string
   category: string
@@ -130,8 +131,8 @@ interface CosmeticDetail {
 
 const route = useRoute()
 const router = useRouter()
-const id = Number(route.params.id)
-
+const id = Number(route.params.mycosmeticId)
+const dressingtableId = Number(route.params.id)
 const loaded = ref(false)
 const data = ref<CosmeticDetail | null>(null)
 const alarmEnabled = ref(false)
@@ -142,6 +143,7 @@ onMounted(async () => {
   // data.value = res
   data.value = {
     id,
+    dressingtableId,
     brand: 'BRAND',
     productName: '에센스 123',
     category: '에센스',
@@ -209,7 +211,7 @@ const statusText = computed(() => {
 })
 
 function edit() {
-  router.push(`/mycosmetic/${id}/edit`)
+  router.push(`/dressingtable/${dressingtableId}/mycosmetic/${id}/edit`)
 }
 function remove() {
   if (confirm('정말 삭제할까요?')) {

@@ -19,6 +19,8 @@ import EditProfileView from '@/features/member/pages/EditProfileView.vue'
 import BaseLayout from '@/layouts/BaseLayout.vue'
 import PageLayout from '@/layouts/PageLayout.vue'
 import PostRegisterView from '@/features/post/pages/PostRegisterView.vue'
+import MyCosmeticRegisterView from '@/features/dressingtable/pages/MyCosmeticRegisterView.vue'
+import MyCosmeticEditView from '@/features/dressingtable/pages/MyCosmeticEditView.vue'
 
 const routes = [
   {
@@ -97,26 +99,39 @@ const routes = [
         },
       },
       {
-        path: 'cosmetic/:cosmeticId',
+        path: 'mycosmetic/:mycosmeticId',
         name: 'myCosmeticDeatilView',
         component: MyCosmeticDetailView,
         props: true,
         meta: { title: '화장품 상세' },
       },
-    ],
-  },
-  {
-    path: '/dressingtable/:id/add',
-    component: PageLayout,
-    children: [
       {
-        path: '',
+        path: 'new',
         name: 'myCosmeticRegister',
-        component: MyCosmeticRegisterForm,
+        component: MyCosmeticRegisterView,
+        props: true,
+      },
+      {
+        path: 'mycosmetic/:mycosmeticId/edit',
+        name: 'myCosmeticEdit',
+        component: MyCosmeticEditView,
         props: true,
       },
     ],
   },
+  // {
+  //   path: '/dressingtable/:id/new',
+  //   component: PageLayout,
+  //   children: [
+  //     {
+  //       path: '',
+  //       name: 'myCosmeticRegister',
+  //       component: MyCosmeticRegisterView,
+  //       props: true,
+  //     },
+  //   ],
+  // },
+
   // {
   //   path: '/chat',
   //   component: ChatLayout,
