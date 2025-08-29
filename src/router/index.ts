@@ -10,17 +10,16 @@ import PostDetail from '@/features/post/pages/PostDetailView.vue'
 import ChatListView from '@/features/chat/pages/ChatListView.vue'
 import NotificationView from '@/features/notification/pages/NotificationView.vue'
 import PostListView from '@/features/post/pages/PostListView.vue'
-import MyCosmeticRegisterForm from '@/features/dressingtable/pages/MyCosmeticRegisterForm.vue'
 import MyDressingtableList from '@/features/dressingtable/pages/MyDressingtableList.vue'
 import MyDressingtableView from '@/features/dressingtable/pages/MyDressingtableView.vue'
-import MyCosmeticDetailView from '@/features/dressingtable/pages/MyCosmeticDetailView.vue'
+import MyCosmeticDetailView from '@/features/my-cosmetic/pages/MyCosmeticDetailView.vue'
 import MyProfileView from '@/features/member/pages/MyProfileView.vue'
 import EditProfileView from '@/features/member/pages/EditProfileView.vue'
 import BaseLayout from '@/layouts/BaseLayout.vue'
 import PageLayout from '@/layouts/PageLayout.vue'
 import PostRegisterView from '@/features/post/pages/PostRegisterView.vue'
-import MyCosmeticRegisterView from '@/features/dressingtable/pages/MyCosmeticRegisterView.vue'
-import MyCosmeticEditView from '@/features/dressingtable/pages/MyCosmeticEditView.vue'
+import MyCosmeticRegisterView from '@/features/my-cosmetic/pages/MyCosmeticRegisterView.vue'
+import MyCosmeticEditView from '@/features/my-cosmetic/pages/MyCosmeticEditView.vue'
 
 const routes = [
   {
@@ -110,15 +109,45 @@ const routes = [
         name: 'myCosmeticRegister',
         component: MyCosmeticRegisterView,
         props: true,
+        meta: { title: '화장품 등록' },
       },
       {
         path: 'mycosmetic/:mycosmeticId/edit',
         name: 'myCosmeticEdit',
         component: MyCosmeticEditView,
         props: true,
+        meta: { title: '화장품 수정' },
       },
     ],
   },
+  // {
+  //   path: '/my-cosmetic',
+  //   component: PageLayout,
+  //   children: [
+  //     {
+  //       path: '',
+  //       name: 'myCosmeticRegister',
+  //       Component: MyCosmeticRegisterView,
+  //       props: true,
+  //       meta: {title: '화장품 등록'},
+  //     },
+  //     {
+  //         path: 'mycosmetic/:mycosmeticId',
+  //         name: 'myCosmeticDeatilView',
+  //         component: MyCosmeticDetailView,
+  //         props: true,
+  //         meta: { title: '화장품 상세' },
+  //       },
+  //       {
+  //           path: 'mycosmetic/:mycosmeticId/edit',
+  //           name: 'myCosmeticEdit',
+  //           component: MyCosmeticEditView,
+  //           props: true,
+  //         meta: { title: '화장품 상세' },
+
+  //         },
+  //   ],
+  // },
   // {
   //   path: '/dressingtable/:id/new',
   //   component: PageLayout,

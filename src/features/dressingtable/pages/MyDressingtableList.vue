@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import DressingtableRegisterModal from '@/components/modals/DressingtableRegisterModal.vue'
+import DressingtableRegisterModal from '@/features/dressingtable/components/DressingtableRegisterModal.vue'
 import DressingtableItem from '../components/DressingtableItem.vue'
 import PlusIconButton from '@/components/atoms/PlusIconButton.vue'
 import type { Dressingtable } from '@/type'

@@ -1,0 +1,164 @@
+@use '@/assets/styles/variables' as v;
+
+/* 칩 공통 */
+%mc-chip {
+  font-size: v.$font-size-sm;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: v.$background-color-soft-gray;
+  color: v.$text-color-subtle;
+  border: 1px solid v.$border-color-chip;
+
+  &.outline {
+    background: v.$background-color;
+  }
+}
+
+/* Key-Value 그리드 공통 */
+%mc-kv-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto; /* 라벨 / 값 / 보조 */
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+}
+%mc-kv-label {
+  font-size: v.$font-size-sm;
+  color: v.$text-color-subtle;
+}
+%mc-kv-value {
+  font-size: v.$font-size-base;
+  color: v.$text-color-primary;
+  text-align: right;
+}
+%mc-kv-value-strong {
+  font-weight: 800;
+}
+%mc-kv-sub {
+  font-size: v.$font-size-sm;
+  color: v.$text-color-sub;
+  text-align: right;
+}
+%mc-kv-sub-warn {
+  color: v.$text-color-warning;
+}
+%mc-kv-sub-danger {
+  color: v.$text-color-danger;
+}
+
+/* 스위치 공통 */
+%mc-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+
+  input {
+    display: none;
+  }
+
+  span {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: #e6e6e6;
+    transition: 0.2s;
+  }
+  span::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: v.$background-color;
+    top: 2px;
+    left: 2px;
+    transition: 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  input:checked + span {
+    background: lighten(v.$color-accent, 5%);
+  }
+  input:checked + span::after {
+    transform: translateX(20px);
+  }
+}
+
+/* 스켈레톤 공통 */
+%mc-skeleton {
+  background: v.$background-color-skeleton;
+  border-radius: v.$radius;
+  animation: mc-skeleton-loading 1.2s ease-in-out infinite;
+}
+@keyframes mc-skeleton-loading {
+  0% {
+    background-color: v.$background-color-skeleton;
+  }
+  50% {
+    background-color: v.$background-color-skeleton-alt;
+  }
+  100% {
+    background-color: v.$background-color-skeleton;
+  }
+}
+
+/* 플로팅 라벨 입력 래퍼 */
+%mc-floating-wrapper {
+  position: relative;
+  border: 1px solid v.$border-color-light;
+  border-radius: v.$radius * 1.5;
+  padding: 20px 12px 4px;
+  background-color: v.$background-color;
+  margin-bottom: 8px;
+  min-height: 48px;
+}
+%mc-floating-label {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  font-size: v.$font-size-base;
+  color: v.$text-color-muted;
+  transition: 0.2s ease;
+  pointer-events: none;
+
+  &.active {
+    top: 6px;
+    font-size: v.$font-size-sm - 1px;
+    color: v.$color-accent;
+  }
+}
+
+/* 폼 버튼(공통) */
+%mc-btn {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 48px;
+  border-radius: v.$radius * 1.5;
+  font-size: v.$font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.02s ease,
+    opacity 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+%mc-btn-ghost {
+  background: v.$background-color;
+  border: 1px solid v.$border-color-form;
+  color: v.$text-color-brown;
+}
+%mc-btn-primary {
+  background: v.$button-color-primary;
+  color: v.$background-color;
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

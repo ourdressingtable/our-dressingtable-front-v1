@@ -1,9 +1,12 @@
+@use '@/assets/styles/variables' as v;
+@use './common' as *;
+
 .dressingtable-main {
   .cosmetic-filters {
     display: flex;
     gap: 8px;
     align-items: center;
-    flex-wrap: wrap; // 여러 줄 허용하려면 유지, 한 줄만이면 지워도 됨
+    flex-wrap: wrap;
     margin-bottom: 12px;
 
     .segmented {
@@ -12,71 +15,49 @@
       flex-wrap: wrap;
     }
     .segmented-btn {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid #eee;
-      background: #fafafa;
-      font-weight: 600;
-      font-size: 13px;
-      color: #555;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
-      cursor: pointer;
-    }
-    .segmented-btn.active {
-      background: #ffe6e8;
-      border-color: #eba6a9;
-      color: #d86b77;
+      @extend %dt-pill;
     }
 
-    /* 2행: 드롭다운들 가로 배치 */
     .filter-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       align-items: center;
-
       > .base-select {
         margin-bottom: 0;
-      } /* pill margin 제거 */
+      }
     }
   }
 
   .base-select.is-cosmetic .dropdown-menu {
     position: absolute;
-    left: 0; /* 필요 시 right:0 로 정렬 변경 */
+    left: 0;
     top: calc(100% + 4px);
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 12px;
+    background: v.$background-color;
+    border: 1px solid v.$border-color-light;
+    border-radius: v.$radius * 1.5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     z-index: 10;
-
-    /* 내용 길이에 맞춰 넓어지되 최소는 트리거 만큼 */
     width: max-content;
     min-width: 100%;
-    max-width: 80vw; /* 너무 길어지지 않도록 제한 */
+    max-width: 80vw;
     box-sizing: border-box;
   }
 
   .base-select.is-cosmetic .dropdown-menu li {
     display: block;
     padding: 12px 12px;
-    font-size: 14px;
-    color: #333;
+    font-size: v.$font-size-base;
+    color: v.$text-color-primary;
     cursor: pointer;
-
-    /* 한 줄 고정 + 넘치면 말줄임 */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+    @extend %dt-ellipsis-one;
 
     &:hover {
-      background-color: #fff0f1;
+      background-color: v.$color-accent-light;
     }
     &.selected {
-      background-color: #eba6a9;
-      color: #fff;
+      background-color: v.$color-accent;
+      color: v.$background-color;
     }
   }
 
@@ -89,17 +70,15 @@
     justify-content: center;
     gap: 6px;
     border-radius: 999px;
-    background: #fafafa;
-    border: 1px solid #eee;
+    background: v.$background-color-soft;
+    border: 1px solid v.$border-color-light;
 
     .dropdown-label {
       display: none;
     }
     .dropdown-value {
-      font-size: 13px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: v.$font-size-sm;
+      @extend %dt-ellipsis-one;
     }
     .dropdown-arrow {
       position: absolute;
@@ -114,18 +93,22 @@
   .cosmetic-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: v.$spacing;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   /* 카드 */
   .my-cosmetic-card .thumb {
     position: relative;
     aspect-ratio: 1/1;
-    border-radius: 8px;
+    border-radius: v.$radius;
     overflow: hidden;
-    background: #fde8ea;
+    background: v.$background-color-accent;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-    border: 1px solid #ebebeb;
+    border: 1px solid v.$border-color-light;
 
     img,
     .placeholder {
@@ -135,8 +118,7 @@
       display: block;
     }
     .placeholder {
-      // background: #fde8ea;
-      background: #fbfbfb;
+      background: v.$background-color-soft;
     }
 
     .brand-badge {
@@ -145,15 +127,13 @@
       left: 10px;
       padding: 4px 10px;
       font-weight: 700;
-      font-size: 12px;
-      color: #444;
+      font-size: v.$font-size-sm;
+      color: v.$text-color-primary;
       background: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: 999px;
       max-width: 75%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      @extend %dt-ellipsis-one;
     }
 
     .gradient {
@@ -168,26 +148,17 @@
       right: 10px;
       bottom: 10px;
       padding: 6px 10px;
-      border-radius: 10px;
+      border-radius: v.$radius;
       font-weight: 800;
-      font-size: 14px; /* ↑ 살짝 키움 */
+      font-size: v.$font-size-base;
       line-height: 1.25;
-      // color: #fff;
-      color: #444;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2; /* 2줄까지 */
-      -webkit-box-orient: vertical;
-      text-overflow: ellipsis;
-
-      background: #fde8ea;
+      color: v.$text-color-primary;
+      background: v.$background-color-accent;
       backdrop-filter: blur(2px);
+      @extend %dt-ellipsis-two;
     }
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    }
+    @extend %dt-hover-elevate;
   }
 
   /* 플로팅 추가 버튼 */
@@ -195,10 +166,5 @@
     right: 16px;
     bottom: 16px;
     z-index: 10;
-  }
-  @media (min-width: 768px) {
-    .cosmetic-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
   }
 }
