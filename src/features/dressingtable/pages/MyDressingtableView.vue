@@ -273,6 +273,6 @@ const displayedList = computed(() => {
 })
 
 const goToRegister = () => {
-  router.push(`/dressingtable/${props.id}/add`)
+  router.push(`/dressingtable/${props.id}/new`)
 }
 </script>

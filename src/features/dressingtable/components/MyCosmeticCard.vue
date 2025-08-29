@@ -52,6 +52,6 @@ const props = defineProps<{
 
 const router = useRouter()
 const goToCosmeticDetail = () => {
-  router.push(`/dressingtable/${props.dressingtable.id}/cosmetic/${props.cosmetic.id}`)
+  router.push(`/dressingtable/${props.dressingtable.id}/mycosmetic/${props.cosmetic.id}`)
 }
 </script>
