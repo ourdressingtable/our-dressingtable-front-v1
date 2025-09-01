@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import CosmeticForm from '@/components/forms/CosmeticForm.vue'
+import CosmeticForm from '@/features/my-cosmetic/components/CosmeticForm.vue'
 import type { CosmeticForm as CosmeticFormType } from '@/type/cosmetic'
 import { useRouter } from 'vue-router'
 // import { cosmeticService } from '@/services/cosmeticService' // 실제 서비스에 맞게 사용

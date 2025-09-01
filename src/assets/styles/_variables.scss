@@ -1,22 +1,60 @@
+/* ---------- 배경 ---------- */
 $background-color: #fff;
 $background-color-second: #eee;
+$background-color-soft: #fafafa;
+$background-color-accent: #fde8ea; // 카드/hero 박스 연핑크
+$background-color-soft-gray: #f6f7f9; // 칩스 배경
+$background-color-skeleton: #f2f2f2; // 스켈레톤 기본
+$background-color-skeleton-alt: #e5e5e5; // 스켈레톤 중간
 
+/* ---------- 색상 ---------- */
 $color-primary: #f9e3e6;
 $color-second: #fff8f4;
 
+$color-accent: #eba6a9;
+$color-accent-light: #ffe6e8;
+$color-accent-dark: #d86b77;
+
+$color-success: #7ec28a; // 상태 배지: OK
+$color-warning: #f2a65a; // 상태 배지: Soon
+$color-danger: #e06c6c; // 상태 배지: Expired
+$color-neutral: #9ca3af; // 상태 배지: Neutral
+
+/* ---------- 텍스트 ---------- */
 $text-color-primary: #333;
 $text-color-second: #5c3a36;
+$text-color-light: #555;
+$text-color-muted: #8b8b8b;
+$text-color-soft: #90939a; // section, sub text
+$text-color-subtle: #6b7280; // chip, label text
+$text-color-sub: #a1a1aa; // kv sub text
+$text-color-warning: #f59e0b; // kv.sub.warn
+$text-color-danger: #ef4444; // kv.sub.danger
+$text-color-placeholder: #b98085; // hero placeholder 텍스트
+$text-color-brown: #6b5a55; // cancel 버튼 텍스트
 
+/* ---------- Border ---------- */
 $border-color-primary: #ccc;
+$border-color-light: #ececec;
+$border-color-soft: #f1dada;
+$border-color-form: #e5e5e5;
+$border-color-chip: #eceff3;
 
-$point-color-primary: #a78bfa;
-
+/* ---------- 버튼 ---------- */
 $button-color-primary: #eba6a9;
+$button-color-primary-dark: #d86b77;
 $button-color-second: #926e67;
 
+/* ---------- 상태/포인트 ---------- */
+$point-color-primary: #a78bfa;
+
+/* ---------- 폰트 ---------- */
 $font-size-large: 16px;
 $font-size-base: 14px;
 $font-size-sm: 12px;
 
+/* ---------- Radius ---------- */
 $radius: 8px;
+
+/* ---------- Spacing ---------- */
 $spacing: 16px;

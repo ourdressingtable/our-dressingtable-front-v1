@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import CosmeticForm from '@/components/forms/CosmeticForm.vue'
+import CosmeticForm from '@/features/my-cosmetic/components/CosmeticForm.vue'
 import type { CosmeticForm as CosmeticFormType } from '@/type/cosmetic'
 // import { cosmeticService } from '@/services/cosmeticService'
 

@@ -97,7 +97,7 @@ import BaseToggle from '@/components/atoms/BaseToggle.vue'
 import ImageUploader from '@/components/atoms/ImageUploader.vue'
 import PriceInput from '@/components/atoms/PriceInput.vue'
 // import BaseCategorySelector from '@/components/atoms/BaseCategorySelector.vue'
-import CosmeticCategoryModal from '@/components/modals/CosmeticCategoryModal.vue'
+import CosmeticCategoryModal from '@/features/my-cosmetic/components/CosmeticCategoryModal.vue'
 
 const form = ref<CosmeticForm>({
   image: null,

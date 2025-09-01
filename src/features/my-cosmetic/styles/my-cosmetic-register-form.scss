@@ -1,0 +1,124 @@
+@use '@/assets/styles/variables' as v;
+@use '@/features/dressingtable/styles/common' as dt;
+@use './common' as mc;
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cosmetic-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing;
+  padding: 20px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* BaseInput 포커스 */
+.base-input:focus {
+  border-color: v.$color-accent;
+}
+
+/* 에러 메시지 */
+.input-error {
+  font-size: v.$font-size-sm;
+  color: v.$text-color-danger;
+  margin-bottom: 8px;
+}
+
+/* BaseSelect (폼 모드) */
+.base-select.is-form {
+  display: block;
+  width: 100%;
+
+  .dropdown-trigger {
+    padding: 20px 12px 4px; /* 폼에서만 패딩 */
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+
+/* 카테고리 선택 (플로팅 라벨) */
+.category-input-wrapper {
+  @extend %mc-floating-wrapper;
+}
+.category-label {
+  @extend %mc-floating-label;
+}
+.category-input-value {
+  color: v.$text-color-primary;
+}
+
+/* 알림 선택 카드 */
+.alarm-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid v.$border-color-light;
+  border-radius: v.$radius * 1.5;
+  background-color: v.$background-color;
+}
+.alarm-label {
+  font-size: v.$font-size-base;
+  color: v.$text-color-primary;
+}
+
+.alarm-box {
+  margin-top: 12px;
+  padding: 16px 12px;
+  border: 1px solid v.$border-color-light;
+  border-radius: v.$radius * 1.5;
+  background-color: v.$background-color;
+}
+.alarm-sub-label {
+  font-size: v.$font-size-base;
+  color: v.$text-color-primary;
+  margin-bottom: 8px;
+}
+
+/* 알림 옵션 버튼 그룹 */
+.alarm-buttons {
+  display: flex;
+  gap: 8px;
+}
+.alarm-btn {
+  @extend %mc-chip; /* pill 스타일 재사용 */
+  padding: 6px 12px;
+  background-color: v.$background-color-soft-gray;
+  color: v.$text-color-muted;
+  border: none;
+  transition: 0.2s;
+}
+.alarm-btn.selected {
+  background-color: v.$button-color-primary;
+  color: v.$background-color;
+}
+
+/* 제출 영역 */
+.submit-section {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-top: 16px;
+}
+
+/* 버튼들 */
+.btn {
+  @extend %mc-btn;
+}
+.cancel-btn {
+  @extend %mc-btn-ghost;
+}
+.submit-btn {
+  @extend %mc-btn-primary;
+}
+
+/* iOS 사파리 기본 버튼 리셋 */
+button::-moz-focus-inner {
+  border: 0;
+}

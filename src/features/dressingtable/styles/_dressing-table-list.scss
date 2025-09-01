@@ -1,0 +1,55 @@
+@use '@/assets/styles/variables' as v;
+@use './common' as *;
+
+.dressingtable-list-wrapper {
+  padding: 8px 12px 96px;
+  @extend %dt-wrapper;
+}
+
+.dressingtable-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 44px 1fr 24px;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 14px;
+  margin: 10px 0;
+
+  @extend %dt-card-surface;
+  @extend %dt-hover-elevate;
+  @extend %dt-focus-ring;
+  text-align: left;
+}
+
+.dressingtable-item .thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  @extend %dt-thumb;
+  font-size: v.$font-size-sm;
+  .initial {
+    transform: translateY(1px);
+  }
+}
+
+.dressingtable-item .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.dressingtable-item .title {
+  font-size: v.$font-size-large;
+  font-weight: 700;
+  color: v.$text-color-primary;
+}
+.dressingtable-item .subtitle {
+  font-size: v.$font-size-sm;
+  color: v.$text-color-muted;
+}
+
+.dressingtable-item .chevron {
+  width: 20px;
+  height: 20px;
+  color: v.$border-color-primary;
+}
