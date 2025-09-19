@@ -1,39 +1,51 @@
-# .
 
-This template should help get you started developing with Vue 3 in Vite.
+# OurDressingTable 👗✨
 
-## Recommended IDE Setup
+**OurDressingTable**은 화장품 관리와 뷰티 커뮤니티를 통합한 플랫폼입니다.  
+사용자는 보유 중인 화장품을 등록하고, 유통기한 알림을 받을 수 있으며, 다양한 뷰티 관련 게시판과 실시간 채팅을 통해 소통할 수 있습니다.  
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Type Support for `.vue` Imports in TS
+## 📌 주요 기능
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+### 1. 화장품 관리
+- 화장품 등록 (카테고리: 대분류/중분류/소분류)
+- 오픈 날짜, 유통기한, 오픈 후 사용기한 관리
+- 유통기한 알림 (1달 전, 1주 전, 1일 전, 사용자 지정 날짜)
+- 구매 정보(가격, 구매처) 및 메모 관리
 
-## Customize configuration
+### 2. 커뮤니티
+- 게시판 (자유, 질문, 후기, 신상/할인, “골라줘” 등)
+- 댓글, 좋아요, 신고 기능
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 3. 소셜 기능
+- 1:1 실시간 채팅 (회원 ↔ 회원)
+- 알림 시스템 (화장품 만료, 채팅 메시지, 이벤트 등)
 
-## Project Setup
+### 4. 회원/관리자 기능
+- SNS 로그인 + 본인 인증
+- 회원 등급 관리 (무료 / PRO 등)
+---
 
-```sh
-npm install
-```
+## 🛠 기술 스택
 
-### Compile and Hot-Reload for Development
+### Backend
+- **Java 17 / Spring Boot**
+- **Spring Security + JWT**
+- **JPA + QueryDSL**
+- **Redis** (세션/알림/토큰/레이트리밋)
+- **Kafka** (실시간 메시지 스트리밍)
+- **MongoDB** (채팅 데이터 저장)
+- **Elasticsearch** (검색 최적화)
+- **Gradle** (빌드 및 의존성 관리)
 
-```sh
-npm run dev
-```
+### Frontend
+- **Vue 3 + Vite + TypeScript**
+- **Pinia** (상태 관리)
+- **SCSS**
+- **Axios, Vue Router**
 
-### Type-Check, Compile and Minify for Production
+### Infra
+- **Docker & Docker Compose**
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+---
